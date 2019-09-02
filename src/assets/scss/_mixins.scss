@@ -1,0 +1,30 @@
+// screen sizes
+@mixin screen-xl {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin screen-lg {
+  @media (max-width: 1220px) {
+    @content;
+  }
+}
+
+@mixin screen-md {
+  @media (max-width: 865px) {
+    @content;
+  }
+}
+
+@mixin screen-sm {
+  @media (max-width: 300px) {
+    @content;
+  }
+}
+
+@mixin screen-xs {
+  @media (max-width: 300px) {
+    @content;
+  }
+}

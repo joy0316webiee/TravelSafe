@@ -1,0 +1,22 @@
+@import './assets/scss/base.scss';
+
+// TODO: import fonts
+
+* {
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  // font-family
+}
+
+div {
+  // border: 1px solid #ddd;
+}
