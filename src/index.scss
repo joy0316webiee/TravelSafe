@@ -1,6 +1,20 @@
 @import './assets/scss/base.scss';
 
-// TODO: fonts
+// fonts
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('assets/fonts/Segoe UI.woff');
+}
+
+@font-face {
+  font-family: 'Microsoft Himalaya';
+  src: url('assets/fonts/Himalaya.ttf');
+}
+
+@font-face {
+  font-family: 'Lucida Bright';
+  src: url('assets/fonts/LBrite.ttf');
+}
 
 * {
   box-sizing: border-box;
@@ -18,5 +32,5 @@ body {
 }
 
 div {
-  border: 1px solid #ddd;
+  // border: 1px solid #ddd;
 }
