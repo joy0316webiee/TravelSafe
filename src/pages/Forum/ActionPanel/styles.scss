@@ -1,19 +1,20 @@
 .action-panel__wrapper {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(18px);
-  padding: 18px 40px;
+  padding: 15px 32px;
   border-radius: 10px;
 
   button {
+    width: 125px;
+    height: 50px;
     background-color: transparent;
     border: 2px solid #707070;
     border-radius: 20px;
     color: #707070;
     font-family: Segoe UI;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20px;
     margin: 0 7px;
-    padding: 10px 20px;
     cursor: pointer;
 
     &:hover,

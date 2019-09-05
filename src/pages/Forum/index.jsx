@@ -5,9 +5,15 @@ import Post from './Post';
 
 import { posts, missions } from './dummy.json';
 import './styles.scss';
+
+const MODE_DEFAULT = 0;
+const MODE_READ = 1;
+const MODE_POST = 2;
+
 class Forum extends Component {
   state = {
-    displayPosts: []
+    displayPosts: [],
+    mode: MODE_DEFAULT
   };
 
   componentDidMount() {
@@ -24,16 +30,24 @@ class Forum extends Component {
   };
 
   isToday = date => {
-    const tempDate = new Date();
-    const today = `${tempDate.getDate()}/${tempDate.getMonth() +
-      1}/${tempDate.getFullYear()}`;
-    return new Date(today).getTime() === new Date(date).getTime();
+    // const tempDate = new Date();
+    // const today = `${tempDate.getMonth() +
+    //   1}/${tempDate.getDate()}/${tempDate.getFullYear()}`;
 
-    // return new Date('03/09/2019').getTime() === new Date(date).getTime();
+    // return new Date(today).getTime() === new Date(date).getTime();
+
+    return new Date('09.03.2019').getTime() === new Date(date).getTime();
+  };
+
+  handlePostRead = id => {
+    this.setState(({ displayPosts }) => ({
+      displayPosts: displayPosts.filter(post => post._id === id),
+      mode: MODE_READ
+    }));
   };
 
   render() {
-    const { displayPosts } = this.state;
+    const { displayPosts, mode } = this.state;
 
     return (
       <div className="forum-wrapper">
@@ -53,7 +67,12 @@ class Forum extends Component {
           </div>
           <div className="posts">
             {displayPosts.slice(0, 4).map((post, id) => (
-              <Post key={id} post={post} />
+              <Post
+                key={id}
+                post={post}
+                reading={mode === MODE_READ}
+                onRead={this.handlePostRead}
+              />
             ))}
           </div>
         </div>
@@ -93,8 +112,8 @@ class Forum extends Component {
                       <h3>{mission}</h3>
                     </div>
                     <div className="actions">
-                      <button>Explorer</button>
-                      <button>BP</button>
+                      <span>Explorer</span>
+                      <span>BP</span>
                     </div>
                   </div>
                 ))}

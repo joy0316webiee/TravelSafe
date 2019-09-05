@@ -5,28 +5,29 @@ import './styles.scss';
 
 class ActionPanel extends Component {
   state = {
-    activeId: 2
+    topics: ['Newest', 'Topics', 'Questions', 'Bp'],
+    currentTopic: 'Newest'
   };
 
-  onButtonClick = id => () => {
-    this.setState({ activeId: id });
+  onButtonClick = topic => () => {
+    this.setState({ currentTopic: topic });
   };
 
   render() {
-    const buttonList = ['Newest', 'Topics', 'Questions', 'Bp'];
+    const { topics } = this.state;
     const classes = {
-      button: id => clsx(this.state.activeId === id && 'active')
+      button: topic => clsx(this.state.currentTopic === topic && 'active')
     };
 
     return (
       <div className="action-panel__wrapper">
-        {buttonList.map((label, id) => (
+        {topics.map((topic, id) => (
           <button
             key={id}
-            className={classes.button(id)}
-            onClick={this.onButtonClick(id)}
+            className={classes.button(topic)}
+            onClick={this.onButtonClick(topic)}
           >
-            {label}
+            {topic}
           </button>
         ))}
       </div>
