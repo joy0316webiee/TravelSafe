@@ -7,7 +7,10 @@ const Comment = ({ comment, highlighted }) => {
     <div className="comment-wrapper">
       <div className="details">
         <div className="title">
-          <img src={require(`../../../${comment.author.avatar}`)} />
+          <img
+            src={require(`../../../${comment.author.avatar}`)}
+            alt="avatar"
+          />
           <h3>James</h3>
         </div>
         <div className="text">
