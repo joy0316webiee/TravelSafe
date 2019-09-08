@@ -4,12 +4,16 @@ export const sortByDate = dataArray => {
   });
 };
 
-export const isToday = date => {
-  // const tempDate = new Date();
-  // const today = `${tempDate.getMonth() +
-  //   1}/${tempDate.getDate()}/${tempDate.getFullYear()}`;
+export const today = () => {
+  const tempDate = new Date();
+  const today = `${tempDate.getMonth() +
+    1}.${tempDate.getDate()}.${tempDate.getFullYear()}`;
 
-  // return new Date(today).getTime() === new Date(date).getTime();
+  return today;
+};
+
+export const isToday = date => {
+  // return new Date(today()).getTime() === new Date(date).getTime();
 
   return new Date('09.03.2019').getTime() === new Date(date).getTime();
 };

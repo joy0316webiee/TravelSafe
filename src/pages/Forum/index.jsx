@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import ReactPagniate from 'react-paginate';
 
 import SideMenu from './SideMenu';
 import TagSwitcher from './TagSwitcher';
 import Post from './Post';
+import MakePost from './Modals/MakePost';
+
 import { isToday, sortByDate } from 'helpers/Date';
 import { posts, currentUser } from './dummy.json';
 
@@ -15,9 +18,9 @@ class Forum extends Component {
     selectedTag: 'Newest',
     searchTerm: '',
     currentUser,
-    currentPost: {},
-    openReadModal: false,
-    openCreateModal: false
+    totalPages: 0,
+    perPage: 5,
+    offset: 0
   };
 
   componentDidMount() {
@@ -33,7 +36,7 @@ class Forum extends Component {
   };
 
   getDisplayPosts = () => {
-    let { currentUser, selectedTag, searchTerm } = this.state;
+    let { currentUser, selectedTag, searchTerm, offset, perPage } = this.state;
 
     // filter by tag
     let taggedPosts = [];
@@ -62,7 +65,9 @@ class Forum extends Component {
       return acc;
     }, []);
 
-    return sortByDate(filteredPosts).slice(0, 6);
+    this.setState({ totalPages: Math.ceil(filteredPosts.length / perPage) });
+
+    return sortByDate(filteredPosts).slice(offset, offset + perPage);
   };
 
   getTodayPosts = () => {
@@ -86,13 +91,6 @@ class Forum extends Component {
     if (e.keyCode === 13) this.updateDisplayPosts();
   };
 
-  handlePostOpen = post => {
-    this.setState({
-      openReadModal: true,
-      currentPost: post
-    });
-  };
-
   handleTagSwitch = tag =>
     this.setState(
       {
@@ -101,8 +99,26 @@ class Forum extends Component {
       () => this.updateDisplayPosts()
     );
 
+  handlePageChange = data => {
+    const { perPage } = this.state;
+    const currentPage = data.selected;
+
+    this.setState(
+      {
+        offset: currentPage * perPage
+      },
+      () => this.updateDisplayPosts()
+    );
+  };
+
   render() {
-    const { displayPosts, todayPosts, missions, searchTerm } = this.state;
+    const {
+      displayPosts,
+      todayPosts,
+      missions,
+      searchTerm,
+      totalPages
+    } = this.state;
 
     return (
       <div className="forum-wrapper">
@@ -111,7 +127,7 @@ class Forum extends Component {
             <h1>Forum</h1>
             <p>Connect, travel and share</p>
           </div>
-          <div className="actions">
+          <div className="tag-switcher">
             <TagSwitcher onSwitch={this.handleTagSwitch} />
             <div className="makepost">
               <button>Make a post</button>
@@ -128,17 +144,29 @@ class Forum extends Component {
           </div>
           <div className="posts">
             {displayPosts.map((post, id) => (
-              <Post
-                key={id}
-                post={post}
-                onOpen={() => this.handlePostOpen(post)}
-              />
+              <Post key={id} post={post} />
             ))}
+          </div>
+          <div className="pagination-wrapper">
+            <ReactPagniate
+              previousLabel={'<'}
+              nextLabel={'>'}
+              breakLabel={'...'}
+              breakClassName={'break-me'}
+              pageCount={totalPages}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={4}
+              onPageChange={this.handlePageChange}
+              containerClassName={'pagination'}
+              subContainerClassName={'pages pagination'}
+              activeClassName={'active'}
+            />
           </div>
         </div>
         <div className="right-pane">
           <SideMenu todayPosts={todayPosts} missions={missions} />
         </div>
+        <MakePost />
       </div>
     );
   }

@@ -1,0 +1,186 @@
+.comment-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+
+  .comment-modal {
+    background-color: white;
+    width: 1000px;
+    position: relative;
+    margin: 10px auto;
+    padding: 10px 30px 20px;
+    border-radius: 10px;
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-right: 30px;
+
+      .left-pane {
+        display: flex;
+        align-items: center;
+
+        .avatar {
+          img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+          }
+        }
+        .info {
+          margin-left: 20px;
+
+          h2 {
+            margin: 0;
+            font-size: 20px;
+            font-family: Lucida Bright;
+            color: #9acd32;
+          }
+          .feedback {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+
+            &-commented,
+            &-liked {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-right: 10px;
+
+              img {
+                width: 15px;
+                height: 15px;
+                object-fit: contain;
+              }
+              span {
+                margin-left: 5px;
+                color: #808080;
+                font-family: Segoe UI;
+                font-size: 13px;
+              }
+            }
+            .like {
+              border: 1px solid #808080;
+              border-radius: 4px;
+              color: #808080;
+              cursor: pointer;
+
+              &:hover {
+                background-color: #eee;
+              }
+            }
+          }
+        }
+      }
+      .right-pane {
+        .date {
+          color: #07c;
+          font-size: 14px;
+        }
+      }
+      .close {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+
+        button {
+          border: none;
+          font-size: 20px;
+          color: #808080;
+          cursor: pointer;
+        }
+      }
+    }
+    .modal-content {
+      .forum-text {
+        border-bottom: 1px solid #ddd;
+
+        p {
+          padding-right: 20px;
+          text-align: justify;
+          font-size: 15px;
+          color: #333;
+        }
+      }
+      .comments-pane {
+        .write-comment {
+          margin-top: 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+
+          textarea {
+            width: 830px;
+            height: 100px;
+            padding: 15px;
+            font-size: 13px;
+            border-radius: 5px;
+            border-color: #808080;
+            margin: 0px;
+            resize: none;
+          }
+          button {
+            font-size: 15px;
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            background: #00b0cc;
+            border-radius: 10px;
+            cursor: pointer;
+
+            &:hover {
+              background: darken(#00b0cc, 5%);
+            }
+            &:disabled {
+              background: #ddd;
+            }
+          }
+        }
+        .comments {
+          max-height: 450px;
+          margin-top: 15px;
+          overflow: auto;
+
+          &::-webkit-scrollbar {
+            width: 5px;
+          }
+          &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+          }
+          &::-webkit-scrollbar-thumb {
+            background: #888;
+          }
+          &::-webkit-scrollbar-thumb:hover {
+            background: #555;
+          }
+        }
+        .pagination-wrapper {
+          text-align: center;
+
+          .pagination {
+            list-style: none;
+            display: inline-block;
+
+            li {
+              display: inline-block;
+              padding: 2px 7px;
+              font-size: 12px;
+              color: #808080;
+              cursor: pointer;
+
+              &.active {
+                border: 1px solid #808080;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

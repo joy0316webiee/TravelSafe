@@ -1,5 +1,7 @@
+@import 'assets/scss/base.scss';
+
 .forum-wrapper {
-  height: 2160px;
+  height: 1990px;
   background-image: url('../../assets/images/forum_feed_bg.png'),
     url('../../assets/images/forum_header_bg.png');
   background-position: bottom, top;
@@ -30,8 +32,8 @@
         margin: 0;
       }
     }
-    .actions {
-      margin-top: 143px;
+    .tag-switcher {
+      margin-top: 200px;
       margin-left: 40px;
       display: flex;
       align-items: center;
@@ -63,7 +65,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 160px;
+      margin-top: 120px;
       position: -webkit-sticky;
       position: sticky;
       top: 0px;
@@ -88,7 +90,26 @@
       }
     }
     .posts {
-      padding-top: 60px;
+      padding-top: 80px;
+    }
+    .pagination-wrapper {
+      text-align: center;
+
+      .pagination {
+        list-style: none;
+        display: inline-block;
+
+        li {
+          display: inline-block;
+          padding: 3px 10px;
+          color: white;
+          cursor: pointer;
+
+          &.active {
+            border: 1px solid white;
+          }
+        }
+      }
     }
   }
   .right-pane {

@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import clsx from 'clsx';
+import React, { Component, Fragment } from 'react';
 
-// import Comment from '../Comment';
-// import { sortByDate } from 'helpers/Date';
+import AddComment from '../Modals/AddComment';
+import SendMessage from '../Modals/SendMessage';
 
 import IconComment from 'assets/images/ic_comment_white.png';
 import IconThumbup from 'assets/images/ic_thumbup_white.png';
@@ -10,8 +9,9 @@ import './styles.scss';
 
 class Post extends Component {
   state = {
-    post: { ...this.props.post }
-    // bestAnswer: {}
+    post: { ...this.props.post },
+    liked: false,
+    openModal: false
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -20,51 +20,33 @@ class Post extends Component {
     }
   }
 
-  // getBestAnswer = comments => {
-  //   return comments.reduce((acc, comment) =>
-  //     acc.liked_count > comment.liked_count ? acc : comment
-  //   );
-  // };
+  onPostClick = () => this.setState({ openModal: true });
 
-  // getRecentComments = (comments, exceptionId) => {
-  //   const sortedComments = sortByDate(
-  //     comments.filter(comment => comment._id !== exceptionId)
-  //   );
+  handleModalClose = () => this.setState({ openModal: false });
 
-  //   return sortedComments.slice(0, 2);
-  // };
+  handlePostLike = () =>
+    this.setState(({ post, liked }) => {
+      let liked_count = liked ? post.liked_count - 1 : post.liked_count + 1;
 
-  // renderCommentsPane = comments => {
-  //   const bestAnswer = this.getBestAnswer(comments);
-  //   const recentComments = this.getRecentComments(comments, bestAnswer._id);
+      return {
+        post: {
+          ...post,
+          liked_count
+        },
+        liked: !liked
+      };
+    });
 
-  //   return (
-  //     <div className="comments-pane__wrapper">
-  //       <div className="write-comment">
-  //         <textarea placeholder="Comment" />
-  //         <button>Send</button>
-  //       </div>
-  //       <div className="comments">
-  //         {bestAnswer && (
-  //           <div className="best-answer">
-  //             <Comment comment={bestAnswer} highlighted />
-  //             <span className="">Best answer</span>
-  //           </div>
-  //         )}
-  //         <div className="recents">
-  //           {recentComments.map((comment, id) => (
-  //             <div key={id} className="comment">
-  //               <Comment comment={comment} />
-  //               <span className="date">{`Posted ${comment.created_dt}`}</span>
-  //             </div>
-  //           ))}
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // };
+  handleCommentAdd = newComment =>
+    this.setState(({ post }) => ({
+      post: {
+        ...post,
+        comments: [newComment, ...post.comments],
+        commented_count: post.commented_count + 1
+      }
+    }));
 
-  renderFeedBack = ({ commented_count, liked_count }, expanded) => (
+  renderFeedBack = ({ commented_count, liked_count }) => (
     <div className="feedback">
       <div className="feedback-commented">
         <img src={IconComment} alt="commented" />
@@ -74,11 +56,6 @@ class Post extends Component {
         <img src={IconThumbup} alt="liked" />
         <span>{liked_count}</span>
       </div>
-      {expanded && (
-        <div className="like">
-          <button>Like</button>
-        </div>
-      )}
     </div>
   );
 
@@ -94,40 +71,55 @@ class Post extends Component {
   });
 
   render() {
-    const { onRead, expanded } = this.props;
-    const { post } = this.state;
+    const { post, liked, openModal } = this.state;
 
     const isBackPacker = post.category === 'backpacker';
 
-    const classes = {
-      postWrapper: clsx('post-wrapper', expanded && 'full-height'),
-      title: clsx(expanded && 'text-dark'),
-      text: clsx('text', !expanded && 'text-truncate')
-    };
-
     return (
-      <div className={classes.postWrapper} onClick={onRead}>
-        <div className="info">
-          <div className="avatar">
-            <img src={require(`../../../${post.author.avatar}`)} alt="author" />
-          </div>
-          {!isBackPacker && this.renderFeedBack(post, expanded)}
-        </div>
-        <div className="details">
-          <div className="header">
-            <div className="labels">
-              <h2 className={classes.title}>{post.title}</h2>
-              <span className="category">{`[${post.category}]`}</span>
-              {isBackPacker && this.renderBackPacker().status(post.closed)}
+      <Fragment>
+        <div className="post-wrapper" onClick={this.onPostClick}>
+          <div className="info">
+            <div className="avatar">
+              <img
+                src={require(`../../../${post.author.avatar}`)}
+                alt="author"
+              />
             </div>
-            <span>{`Posted ${post.created_dt}`}</span>
+            {!isBackPacker && this.renderFeedBack(post)}
           </div>
-          {isBackPacker && this.renderBackPacker().tags(post.tags)}
-          <div className={classes.text}>
-            <p>{post.text}</p>
+          <div className="details">
+            <div className="header">
+              <div className="labels">
+                <h2>{post.title}</h2>
+                <span className="category">{`[${post.category}]`}</span>
+                {isBackPacker && this.renderBackPacker().status(post.closed)}
+              </div>
+              <span>{`Posted ${post.created_dt}`}</span>
+            </div>
+            {isBackPacker && this.renderBackPacker().tags(post.tags)}
+            <div className="text">
+              <p>{post.text}</p>
+            </div>
           </div>
         </div>
-      </div>
+
+        {isBackPacker ? (
+          <SendMessage
+            showModal={openModal}
+            post={post}
+            onClose={this.handleModalClose}
+          />
+        ) : (
+          <AddComment
+            showModal={openModal}
+            post={post}
+            liked={liked}
+            onComment={this.handleCommentAdd}
+            onLike={this.handlePostLike}
+            onClose={this.handleModalClose}
+          />
+        )}
+      </Fragment>
     );
   }
 }
