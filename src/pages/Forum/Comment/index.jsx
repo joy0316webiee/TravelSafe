@@ -38,7 +38,10 @@ class Comment extends Component {
         <div className="comment-header">
           <div className="left-pane">
             <div className="avatar">
-              <img src={require(`../../../${comment.author.avatar}`)} />
+              <img
+                src={require(`../../../${comment.author.avatar}`)}
+                alt="avatar"
+              />
             </div>
             <div className="info">
               <h2>{comment.author.name}</h2>

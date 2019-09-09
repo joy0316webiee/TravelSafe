@@ -27,7 +27,10 @@ class SendMessage extends Component {
         <div className="modal-header">
           <div className="left-pane">
             <div className="avatar">
-              <img src={require(`../../../../${post.author.avatar}`)} />
+              <img
+                src={require(`../../../../${post.author.avatar}`)}
+                alt="avatar"
+              />
             </div>
             <div className="info">
               <h2>{post.title}</h2>

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import AddComment from '../Modals/AddComment';
 import SendMessage from '../Modals/SendMessage';
@@ -20,7 +20,7 @@ class Post extends Component {
     }
   }
 
-  onPostClick = () => this.setState({ openModal: true });
+  handleModalShow = () => this.setState({ openModal: true });
 
   handleModalClose = () => this.setState({ openModal: false });
 
@@ -76,30 +76,25 @@ class Post extends Component {
     const isBackPacker = post.category === 'backpacker';
 
     return (
-      <Fragment>
-        <div className="post-wrapper" onClick={this.onPostClick}>
-          <div className="info">
-            <div className="avatar">
-              <img
-                src={require(`../../../${post.author.avatar}`)}
-                alt="author"
-              />
-            </div>
-            {!isBackPacker && this.renderFeedBack(post)}
+      <div className="post-wrapper" onClick={this.handleModalShow}>
+        <div className="info">
+          <div className="avatar">
+            <img src={require(`../../../${post.author.avatar}`)} alt="author" />
           </div>
-          <div className="details">
-            <div className="header">
-              <div className="labels">
-                <h2>{post.title}</h2>
-                <span className="category">{`[${post.category}]`}</span>
-                {isBackPacker && this.renderBackPacker().status(post.closed)}
-              </div>
-              <span>{`Posted ${post.created_dt}`}</span>
+          {!isBackPacker && this.renderFeedBack(post)}
+        </div>
+        <div className="details">
+          <div className="header">
+            <div className="labels">
+              <h2>{post.title}</h2>
+              <span className="category">{`[${post.category}]`}</span>
+              {isBackPacker && this.renderBackPacker().status(post.closed)}
             </div>
-            {isBackPacker && this.renderBackPacker().tags(post.tags)}
-            <div className="text">
-              <p>{post.text}</p>
-            </div>
+            <span>{`Posted ${post.created_dt}`}</span>
+          </div>
+          {isBackPacker && this.renderBackPacker().tags(post.tags)}
+          <div className="text">
+            <p>{post.text}</p>
           </div>
         </div>
 
@@ -119,7 +114,7 @@ class Post extends Component {
             onClose={this.handleModalClose}
           />
         )}
-      </Fragment>
+      </div>
     );
   }
 }

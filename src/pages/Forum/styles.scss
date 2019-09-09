@@ -8,111 +8,194 @@
   background-repeat: no-repeat, no-repeat;
   padding-top: 170px;
   padding-bottom: 130px;
-  display: flex;
 
-  .left-pane {
-    flex: 1;
-    padding-left: 80px;
-    padding-right: 220px;
+  @include screen-md {
+    padding-top: 91px;
+  }
 
-    > .header {
-      margin-left: 40px;
-      text-align: left;
-      color: white;
+  > .header {
+    margin-left: 120px;
+    text-align: left;
+    color: white;
 
-      h1 {
-        margin: 0;
-        font-family: Lucida Bright;
-        font-size: 120px;
+    h1 {
+      margin: 0;
+      font-family: Lucida Bright;
+      font-size: 120px;
+
+      @include screen-lg {
+        font-size: 90px;
       }
-      p {
-        font-family: Segoe UI;
-        font-weight: 300;
-        font-size: 40px;
-        margin: 0;
+      @include screen-md {
+        font-size: 70px;
       }
     }
-    .tag-switcher {
-      margin-top: 200px;
-      margin-left: 40px;
-      display: flex;
-      align-items: center;
+    p {
+      font-family: Segoe UI;
+      font-weight: 300;
+      font-size: 40px;
+      margin: 0;
 
-      .makepost {
-        button {
-          width: 161px;
-          height: 62px;
-          margin-left: 20px;
-          background-color: darken(#00c6e5, 5%);
-          border-radius: 10px;
-          border: none;
-          color: white;
-          font-family: Segoe UI;
-          font-weight: bold;
-          font-size: 20px;
-          cursor: pointer;
-
-          &:hover {
-            background-color: darken(#00c6e5, 10%);
-          }
-        }
+      @include screen-lg {
+        font-size: 30px;
       }
-    }
-    .search-area {
-      width: 100%;
-      height: 100px;
-      background-color: #393939;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 120px;
-      position: -webkit-sticky;
-      position: sticky;
-      top: 0px;
-      border-radius: 20px;
-      z-index: 2;
-
-      input {
-        width: 89%;
-        height: 45px;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-family: Segoe UI;
-        font-weight: bold;
-        font-size: 20px;
-        border: none;
-        background: white url('../../assets/images/ic_search_grey.png')
-          no-repeat 99% 50% / contain;
-
-        &::placeholder {
-          color: #cfcece;
-        }
-      }
-    }
-    .posts {
-      padding-top: 80px;
-    }
-    .pagination-wrapper {
-      text-align: center;
-
-      .pagination {
-        list-style: none;
-        display: inline-block;
-
-        li {
-          display: inline-block;
-          padding: 3px 10px;
-          color: white;
-          cursor: pointer;
-
-          &.active {
-            border: 1px solid white;
-          }
-        }
+      @include screen-md {
+        font-size: 25px;
       }
     }
   }
-  .right-pane {
-    width: 550px;
+  .content {
+    display: flex;
+
+    @include screen-md {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .left-pane {
+      flex: 1;
+      padding-left: 80px;
+      padding-right: 20px;
+
+      @include screen-lg {
+        padding-left: 40px;
+      }
+      @include screen-md {
+        order: 2;
+      }
+
+      .tag-switcher {
+        margin-top: 200px;
+        margin-left: 40px;
+        display: flex;
+        align-items: center;
+
+        @include screen-md {
+          margin-top: 15px;
+          justify-content: center;
+        }
+
+        .makepost {
+          button {
+            width: 161px;
+            height: 62px;
+            margin-left: 20px;
+            background-color: darken(#00c6e5, 5%);
+            border-radius: 10px;
+            border: none;
+            color: white;
+            font-family: Segoe UI;
+            font-weight: bold;
+            font-size: 20px;
+            cursor: pointer;
+
+            &:hover {
+              background-color: darken(#00c6e5, 10%);
+            }
+
+            @include screen-lg {
+              width: 105px;
+              height: 46px;
+              font-size: 15px;
+            }
+          }
+        }
+      }
+      .search-area {
+        width: 100%;
+        height: 100px;
+        max-width: 1050px;
+        background-color: #393939;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 120px;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0px;
+        border-radius: 20px;
+        z-index: 2;
+
+        @include screen-lg {
+          height: 80px;
+        }
+        @include screen-md {
+          margin-top: 10px;
+          height: 58px;
+        }
+
+        input {
+          width: 89%;
+          height: 45px;
+          padding: 10px 20px;
+          border-radius: 5px;
+          font-family: Segoe UI;
+          font-weight: bold;
+          font-size: 20px;
+          border: none;
+          background: white url('../../assets/images/ic_search_grey.png')
+            no-repeat 99% 50% / contain;
+
+          &::placeholder {
+            color: #cfcece;
+          }
+
+          @include screen-lg {
+            font-size: 15px;
+            height: 40px;
+          }
+          @include screen-md {
+            height: 35px;
+          }
+        }
+      }
+      .posts {
+        padding-top: 80px;
+        max-width: 1050px;
+
+        @include screen-lg {
+          padding-top: 144px;
+        }
+        @include screen-md {
+          padding-top: 20px;
+        }
+      }
+      .pagination-wrapper {
+        text-align: center;
+        max-width: 1050px;
+
+        .pagination {
+          list-style: none;
+          display: inline-block;
+
+          @include screen-lg {
+            font-size: 13px;
+          }
+
+          li {
+            display: inline-block;
+            padding: 3px 10px;
+            color: white;
+            cursor: pointer;
+
+            &.active {
+              border: 1px solid white;
+            }
+          }
+        }
+      }
+    }
+    .right-pane {
+      width: 550px;
+
+      @include screen-lg {
+        width: 450px;
+      }
+      @include screen-md {
+        order: 1;
+        padding: 0 30px;
+        width: 80%;
+      }
+    }
   }
 }

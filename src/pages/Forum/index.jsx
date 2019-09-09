@@ -12,6 +12,7 @@ import { posts, currentUser } from './dummy.json';
 import './styles.scss';
 class Forum extends Component {
   state = {
+    totalPosts: posts,
     displayPosts: [],
     todayPosts: [],
     missions: [],
@@ -20,7 +21,8 @@ class Forum extends Component {
     currentUser,
     totalPages: 0,
     perPage: 5,
-    offset: 0
+    offset: 0,
+    openPostModal: false
   };
 
   componentDidMount() {
@@ -36,22 +38,25 @@ class Forum extends Component {
   };
 
   getDisplayPosts = () => {
-    let { currentUser, selectedTag, searchTerm, offset, perPage } = this.state;
+    // prettier-ignore
+    let { totalPosts, currentUser, selectedTag, searchTerm, offset, perPage } = this.state;
 
     // filter by tag
     let taggedPosts = [];
     switch (selectedTag) {
       case 'Newest':
-        taggedPosts = posts;
+        taggedPosts = totalPosts;
         break;
       case 'Topics':
-        taggedPosts = posts.filter(post => post.author._id === currentUser._id);
+        taggedPosts = totalPosts.filter(
+          post => post.author._id === currentUser._id
+        );
         break;
       case 'Questions':
-        taggedPosts = posts.filter(post => post.category === 'question');
+        taggedPosts = totalPosts.filter(post => post.category === 'question');
         break;
       default:
-        taggedPosts = posts.filter(post => post.category === 'backpacker');
+        taggedPosts = totalPosts.filter(post => post.category === 'backpacker');
     }
 
     // filter by search term
@@ -71,7 +76,8 @@ class Forum extends Component {
   };
 
   getTodayPosts = () => {
-    return posts
+    const { totalPosts } = this.state;
+    return totalPosts
       .reduce((acc, post) => {
         if (isToday(post.created_dt)) acc.push(post);
         return acc;
@@ -80,8 +86,9 @@ class Forum extends Component {
   };
 
   getMissions = () => {
+    const { totalPosts } = this.state;
     return sortByDate(
-      posts.filter(post => post.category === 'backpacker' && !post.closed)
+      totalPosts.filter(post => post.category === 'backpacker' && !post.closed)
     ).slice(0, 3);
   };
 
@@ -90,6 +97,10 @@ class Forum extends Component {
   onSearchTermKeyDown = e => {
     if (e.keyCode === 13) this.updateDisplayPosts();
   };
+
+  handleModalPostShow = () => this.setState({ openPostModal: true });
+
+  handleModalPostHide = () => this.setState({ openPostModal: false });
 
   handleTagSwitch = tag =>
     this.setState(
@@ -111,62 +122,80 @@ class Forum extends Component {
     );
   };
 
+  handleForumPost = newPost => {
+    this.setState(
+      ({ totalPosts }) => ({
+        totalPosts: [newPost, ...totalPosts]
+      }),
+      () => {
+        this.updateDisplayPosts();
+      }
+    );
+  };
+
   render() {
     const {
       displayPosts,
       todayPosts,
       missions,
       searchTerm,
-      totalPages
+      totalPages,
+      openPostModal
     } = this.state;
 
     return (
       <div className="forum-wrapper">
-        <div className="left-pane">
-          <div className="header">
-            <h1>Forum</h1>
-            <p>Connect, travel and share</p>
-          </div>
-          <div className="tag-switcher">
-            <TagSwitcher onSwitch={this.handleTagSwitch} />
-            <div className="makepost">
-              <button>Make a post</button>
+        <div className="header">
+          <h1>Forum</h1>
+          <p>Connect, travel and share</p>
+        </div>
+        <div className="content">
+          <div className="left-pane">
+            <div className="tag-switcher">
+              <TagSwitcher onSwitch={this.handleTagSwitch} />
+              <div className="makepost">
+                <button onClick={this.handleModalPostShow}>Make a post</button>
+              </div>
+            </div>
+            <div className="search-area">
+              <input
+                type="search"
+                value={searchTerm}
+                placeholder="Search"
+                onChange={this.onSearchTermChange}
+                onKeyDown={this.onSearchTermKeyDown}
+              />
+            </div>
+            <div className="posts">
+              {displayPosts.map((post, id) => (
+                <Post key={id} post={post} />
+              ))}
+            </div>
+            <div className="pagination-wrapper">
+              <ReactPagniate
+                previousLabel={'<'}
+                nextLabel={'>'}
+                breakLabel={'...'}
+                breakClassName={'break-me'}
+                pageCount={totalPages}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={4}
+                onPageChange={this.handlePageChange}
+                containerClassName={'pagination'}
+                subContainerClassName={'pages pagination'}
+                activeClassName={'active'}
+              />
             </div>
           </div>
-          <div className="search-area">
-            <input
-              type="search"
-              value={searchTerm}
-              placeholder="Search"
-              onChange={this.onSearchTermChange}
-              onKeyDown={this.onSearchTermKeyDown}
-            />
-          </div>
-          <div className="posts">
-            {displayPosts.map((post, id) => (
-              <Post key={id} post={post} />
-            ))}
-          </div>
-          <div className="pagination-wrapper">
-            <ReactPagniate
-              previousLabel={'<'}
-              nextLabel={'>'}
-              breakLabel={'...'}
-              breakClassName={'break-me'}
-              pageCount={totalPages}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={4}
-              onPageChange={this.handlePageChange}
-              containerClassName={'pagination'}
-              subContainerClassName={'pages pagination'}
-              activeClassName={'active'}
-            />
+          <div className="right-pane">
+            <SideMenu todayPosts={todayPosts} missions={missions} />
           </div>
         </div>
-        <div className="right-pane">
-          <SideMenu todayPosts={todayPosts} missions={missions} />
-        </div>
-        <MakePost />
+        <MakePost
+          showModal={openPostModal}
+          onPost={this.handleForumPost}
+          onClose={this.handleModalPostHide}
+        />
       </div>
     );
   }

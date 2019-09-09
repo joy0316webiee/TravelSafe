@@ -1,3 +1,5 @@
+@import 'assets/scss/base.scss';
+
 .sidemenu-wrapper {
   width: 100%;
   height: 880px;
@@ -5,10 +7,23 @@
   backdrop-filter: blur(50px);
   border-radius: 50px 0px 0px 50px;
   padding: 40px 0 20px 20px;
-  margin-top: 120px;
+  margin-top: 80px;
   position: -webkit-sticky;
   position: sticky;
   top: 10px;
+
+  @include screen-lg {
+    height: 800px;
+    padding: 40px 0 20px 20px;
+    top: 40px;
+  }
+  @include screen-md {
+    height: 710px;
+    position: unset;
+    border-radius: 30px;
+    margin-top: 30px;
+    padding: 30px 0 14px 20px;
+  }
 
   .today-posts {
     margin-left: 20px;
@@ -20,12 +35,23 @@
         font-weight: bold;
         margin: 0;
         color: #ffffff;
+
+        @include screen-lg {
+          font-size: 25px;
+        }
       }
     }
     .posts {
       margin-top: 30px;
       display: flex;
       flex-direction: column;
+
+      @include screen-lg {
+        margin-top: 20px;
+      }
+      @include screen-md {
+        margin-top: 10px;
+      }
 
       .post {
         display: flex;
@@ -48,6 +74,11 @@
             width: 70px;
             height: 70px;
             object-fit: contain;
+
+            @include screen-lg {
+              width: 50px;
+              height: 50px;
+            }
           }
         }
         .details {
@@ -58,6 +89,11 @@
           -webkit-box-orient: vertical;
           overflow: hidden;
 
+          @include screen-lg {
+            margin-left: 10px;
+            padding-right: 40px;
+          }
+
           h3 {
             margin-top: 0;
             margin-bottom: 10px;
@@ -65,12 +101,20 @@
             font-family: Segoe UI;
             font-size: 22px;
             font-weight: bold;
+
+            @include screen-lg {
+              font-size: 17px;
+            }
           }
           p {
             margin: 0;
             color: white;
             font-family: Segoe UI;
             font-size: 16px;
+
+            @include screen-lg {
+              font-size: 14px;
+            }
           }
         }
       }
@@ -84,6 +128,10 @@
     > .title {
       margin-top: 30px;
 
+      @include screen-md {
+        margin-top: 10px;
+      }
+
       h2 {
         margin: 0;
         font-family: Segoe UI;
@@ -91,10 +139,18 @@
         font-weight: bold;
         letter-spacing: 0;
         color: #ffffff;
+
+        @include screen-lg {
+          font-size: 25px;
+        }
       }
     }
     .missions {
       margin-top: 20px;
+
+      @include screen-md {
+        margin-top: 10px;
+      }
 
       .mission {
         position: relative;
@@ -116,6 +172,10 @@
             font-weight: bold;
             font-size: 22px;
             color: #ffffff;
+
+            @include screen-lg {
+              font-size: 17px;
+            }
           }
         }
         .tags {
@@ -132,6 +192,11 @@
             font-weight: bold;
             font-size: 17px;
             padding: 2px 9px;
+
+            @include screen-lg {
+              font-size: 13px;
+              padding: 2px 7px;
+            }
 
             &:nth-child(1) {
               margin-left: 0px;

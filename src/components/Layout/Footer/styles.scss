@@ -1,3 +1,5 @@
+@import 'assets/scss/base.scss';
+
 .footer-wrapper {
   background-color: transparent;
   width: 100%;
@@ -16,6 +18,13 @@
       font-size: 30px;
       font-weight: bold;
       color: white;
+
+      @include screen-lg {
+        font-size: 22px;
+      }
+      @include screen-md {
+        font-size: 20px;
+      }
     }
   }
 }

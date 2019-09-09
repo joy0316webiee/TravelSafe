@@ -65,13 +65,16 @@ class AddComment extends Component {
 
   getBestAnswer = () => {
     const { post } = this.state;
-    return post.comments.reduce((acc, comment) =>
-      acc.liked_count > comment.liked_count ? acc : comment
+    return post.comments.reduce(
+      (acc, comment) => (acc.liked_count > comment.liked_count ? acc : comment),
+      {}
     );
   };
 
   getDisplayComments = bestAnswer => {
     const { post, offset, perPage } = this.state;
+    if (!post.comments.length) return [];
+
     let sortedComments = sortByDate(
       post.comments.filter(comment => comment._id !== bestAnswer._id)
     );
@@ -105,11 +108,14 @@ class AddComment extends Component {
 
     this.props.onComment(newComment);
 
-    this.setState({ commented: true });
+    this.setState({
+      commented: true,
+      commentText: ''
+    });
   };
 
   renderCommentsPane = () => {
-    const {
+    let {
       commentText,
       totalPages,
       bestAnswer,
@@ -170,7 +176,10 @@ class AddComment extends Component {
         <div className="modal-header">
           <div className="left-pane">
             <div className="avatar">
-              <img src={require(`../../../../${post.author.avatar}`)} />
+              <img
+                src={require(`../../../../${post.author.avatar}`)}
+                alt="avatar"
+              />
             </div>
             <div className="info">
               <h2>{post.title}</h2>
