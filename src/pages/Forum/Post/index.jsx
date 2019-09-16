@@ -59,16 +59,8 @@ class Post extends Component {
     </div>
   );
 
-  renderBackPacker = () => ({
-    tags: tags => (
-      <div className="tags">
-        {tags.map((tag, id) => (
-          <span key={id}>{tag}</span>
-        ))}
-      </div>
-    ),
-    status: closed => closed && <span className="closed">[Closed]</span>
-  });
+  renderBackPackerStatus = closed =>
+    closed && <span className="closed">[Closed]</span>;
 
   render() {
     const { post, liked, openModal } = this.state;
@@ -88,11 +80,15 @@ class Post extends Component {
             <div className="labels">
               <h2>{post.title}</h2>
               <span className="category">{`[${post.category}]`}</span>
-              {isBackPacker && this.renderBackPacker().status(post.closed)}
+              {isBackPacker && this.renderBackPackerStatus(post.closed)}
             </div>
             <span>{`Posted ${post.created_dt}`}</span>
           </div>
-          {isBackPacker && this.renderBackPacker().tags(post.tags)}
+          <div className="tags">
+            {post.tags.map((tag, id) => (
+              <span key={id}>{tag}</span>
+            ))}
+          </div>
           <div className="text">
             <p>{post.text}</p>
           </div>

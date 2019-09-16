@@ -129,7 +129,6 @@ class MakePost extends Component {
               value={tags}
               multi={true}
               options={tagOptions}
-              disabled={category !== 'backpacker'}
               onChange={this.handleTagsChange}
             />
           </div>

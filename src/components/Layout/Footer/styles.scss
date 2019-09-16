@@ -8,22 +8,22 @@
 
   .copyright {
     margin: 0 26px;
-    padding: 36px 0;
+    padding: 10px 0;
     border-top: 1px solid white;
 
     p {
       margin: 0;
       text-align: center;
       font-family: Segoe UI;
-      font-size: 30px;
+      font-size: 20px;
       font-weight: bold;
       color: white;
 
       @include screen-lg {
-        font-size: 22px;
+        font-size: 19px;
       }
       @include screen-md {
-        font-size: 20px;
+        font-size: 18px;
       }
     }
   }

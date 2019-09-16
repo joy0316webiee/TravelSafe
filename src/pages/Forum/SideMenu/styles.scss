@@ -11,6 +11,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 10px;
+  animation: slide-from-right 0.8s;
 
   @include screen-lg {
     height: 800px;
@@ -208,5 +209,16 @@
         }
       }
     }
+  }
+}
+
+@keyframes slide-from-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

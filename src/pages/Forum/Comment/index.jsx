@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { currentUser } from '../dummy.json';
+
 import IconThumbup from 'assets/images/ic_thumbup_grey.png';
 import './styles.scss';
 
@@ -30,6 +32,11 @@ class Comment extends Component {
       };
     });
 
+  renderAuthorName = ({ _id, name }) => {
+    if (_id === currentUser._id) return <h2 className="by-me">By me</h2>;
+    else return <h2>{name}</h2>;
+  };
+
   render() {
     const { comment, liked, highlighted } = this.state;
 
@@ -44,7 +51,7 @@ class Comment extends Component {
               />
             </div>
             <div className="info">
-              <h2>{comment.author.name}</h2>
+              {this.renderAuthorName(comment.author)}
               {highlighted && <span className="best">[Best Answer]</span>}
               <div className="feedback">
                 <div className="liked">

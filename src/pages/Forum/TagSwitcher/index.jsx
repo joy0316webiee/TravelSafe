@@ -5,7 +5,6 @@ import './styles.scss';
 
 class TagSwitcher extends Component {
   state = {
-    tags: ['Newest', 'Topics', 'Questions', 'Bp'],
     currentTag: 'Newest'
   };
 
@@ -16,7 +15,7 @@ class TagSwitcher extends Component {
   };
 
   render() {
-    const { tags } = this.state;
+    const { tags } = this.props;
     const classes = {
       button: tag => clsx(this.state.currentTag === tag && 'active')
     };

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactPagniate from 'react-paginate';
+import clsx from 'clsx';
 
 import SideMenu from './SideMenu';
 import TagSwitcher from './TagSwitcher';
@@ -12,6 +13,7 @@ import { posts, currentUser } from './dummy.json';
 import './styles.scss';
 class Forum extends Component {
   state = {
+    tags: ['Newest', 'Topics', 'Questions', 'Bp'],
     totalPosts: posts,
     displayPosts: [],
     todayPosts: [],
@@ -22,7 +24,8 @@ class Forum extends Component {
     totalPages: 0,
     perPage: 5,
     offset: 0,
-    openPostModal: false
+    openPostModal: false,
+    openHamburger: false
   };
 
   componentDidMount() {
@@ -98,6 +101,10 @@ class Forum extends Component {
     if (e.keyCode === 13) this.updateDisplayPosts();
   };
 
+  onToggleHamburger = () => {
+    this.setState({ openHamburger: !this.state.openHamburger });
+  };
+
   handleModalPostShow = () => this.setState({ openPostModal: true });
 
   handleModalPostHide = () => this.setState({ openPostModal: false });
@@ -133,33 +140,91 @@ class Forum extends Component {
     );
   };
 
+  renderPagination = totalPages => (
+    <div className="pagination-wrapper">
+      <ReactPagniate
+        previousLabel={'<'}
+        nextLabel={'>'}
+        breakLabel={'...'}
+        breakClassName={'break-me'}
+        pageCount={totalPages}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={4}
+        onPageChange={this.handlePageChange}
+        containerClassName={'pagination'}
+        subContainerClassName={'pages pagination'}
+        activeClassName={'active'}
+      />
+    </div>
+  );
+
   render() {
     const {
+      tags,
       displayPosts,
       todayPosts,
       missions,
       searchTerm,
+      selectedTag,
       totalPages,
-      openPostModal
+      openPostModal,
+      openHamburger
     } = this.state;
+
+    const classes = {
+      background: clsx('background', openHamburger && 'expanded'),
+      overlay: clsx('overlay', openHamburger && 'covered'),
+      menu: clsx('menu', openHamburger && 'expanded'),
+      icon: clsx('icon', openHamburger && 'crossed'),
+      tag: tag => clsx('tag', selectedTag === tag && 'active')
+    };
 
     return (
       <div className="forum-wrapper">
         <div className="header">
           <h1>Forum</h1>
           <p>Connect, travel and share</p>
+          <div className="hamburger">
+            <ul className={classes.menu}>
+              <li className="icon-wrapper" onClick={this.onToggleHamburger}>
+                <span className={classes.icon}></span>
+              </li>
+              <li className="post" onClick={this.handleModalPostShow}>
+                <button>Post</button>
+              </li>
+              <li className="search">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  onChange={this.onSearchTermChange}
+                  onKeyDown={this.onSearchTermKeyDown}
+                />
+              </li>
+              {tags.map(tag => (
+                <li
+                  key={tag}
+                  className={classes.tag(tag)}
+                  onClick={() => this.handleTagSwitch(tag)}
+                >
+                  {tag}
+                </li>
+              ))}
+            </ul>
+            <div className={classes.background}></div>
+            <div className={classes.overlay}></div>
+          </div>
         </div>
         <div className="content">
           <div className="left-pane">
             <div className="tag-switcher">
-              <TagSwitcher onSwitch={this.handleTagSwitch} />
+              <TagSwitcher tags={tags} onSwitch={this.handleTagSwitch} />
               <div className="makepost">
                 <button onClick={this.handleModalPostShow}>Make a post</button>
               </div>
             </div>
             <div className="search-area">
               <input
-                type="search"
+                type="text"
                 value={searchTerm}
                 placeholder="Search"
                 onChange={this.onSearchTermChange}
@@ -167,25 +232,13 @@ class Forum extends Component {
               />
             </div>
             <div className="posts">
-              {displayPosts.map((post, id) => (
-                <Post key={id} post={post} />
-              ))}
+              {displayPosts.length > 0 ? (
+                displayPosts.map((post, id) => <Post key={id} post={post} />)
+              ) : (
+                <span>This feed's empty, make a post</span>
+              )}
             </div>
-            <div className="pagination-wrapper">
-              <ReactPagniate
-                previousLabel={'<'}
-                nextLabel={'>'}
-                breakLabel={'...'}
-                breakClassName={'break-me'}
-                pageCount={totalPages}
-                marginPagesDisplayed={2}
-                pageRangeDisplayed={4}
-                onPageChange={this.handlePageChange}
-                containerClassName={'pagination'}
-                subContainerClassName={'pages pagination'}
-                activeClassName={'active'}
-              />
-            </div>
+            {totalPages > 0 && this.renderPagination(totalPages)}
           </div>
           <div className="right-pane">
             <SideMenu todayPosts={todayPosts} missions={missions} />

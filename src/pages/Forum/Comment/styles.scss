@@ -30,6 +30,10 @@
           font-family: Lucida Bright;
           font-size: 15px;
           color: #ff9800;
+
+          &.by-me {
+            color: #a4ff00;
+          }
         }
         .best {
           margin-left: 5px;

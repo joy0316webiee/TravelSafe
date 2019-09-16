@@ -18,6 +18,9 @@
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);
+    backface-visibility: hidden;
+    transform: perspective(1px) translate3d(0, 0, 0) scale(1.01);
+    -webkit-font-smoothing: subpixel-antialiased;
   }
 
   .info {

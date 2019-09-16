@@ -21,25 +21,24 @@
     font-family: Microsoft Himalaya;
     font-weight: 300;
     font-size: 25px;
+    text-transform: uppercase;
 
     @include screen-md {
-      font-size: 19px;
+      font-size: 20px;
     }
 
-    > * {
-      margin: 0 38px;
-    }
-    .menu-item {
+    > li {
       position: relative;
       padding: 7px 0;
+      margin: 0 38px;
       color: white;
       cursor: pointer;
 
       @include screen-md {
-        margin: 0 22px;
+        margin: 0 25px;
       }
 
-      &.pull-right {
+      &.signin {
         position: absolute;
         right: 0;
         margin: 0;
@@ -54,6 +53,10 @@
         left: 0;
         transform: scaleX(0);
         transition: all 0.5s;
+
+        @include screen-md {
+          display: none;
+        }
       }
       &::before {
         top: 0;
@@ -63,12 +66,15 @@
         bottom: 0;
         transform-origin: right;
       }
-      &:hover::before,
-      &:hover::after {
-        transform: scaleX(1);
-      }
-      &:hover > .sub-menu li {
-        display: block;
+      &:hover {
+        &::before,
+        &::after {
+          transform: scaleX(1);
+        }
+
+        > .sub-menu li {
+          display: block;
+        }
       }
 
       .sub-menu {
@@ -100,15 +106,19 @@
               animation-delay: 150ms;
               animation-duration: 300ms;
             }
+            &:nth-child(4) {
+              animation-delay: 300ms;
+              animation-duration: 300ms;
+            }
           }
         }
 
-        &__item {
+        > li {
           background-color: rgba(0, 0, 0, 0.2);
           opacity: 0;
           display: none;
-          padding: 5px 0;
-          text-align: center;
+          padding: 10px 6px 5px;
+          text-align: left;
 
           &:hover {
             background-color: rgba(0, 0, 0, 0.3);
@@ -116,10 +126,23 @@
         }
       }
     }
-    .logo {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
+    .menu-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      img {
+        @include screen-md {
+          width: 60px;
+          height: 60px;
+          object-fit: contain;
+        }
+      }
     }
     .nav-link {
       color: white;

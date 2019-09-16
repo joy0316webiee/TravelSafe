@@ -10,6 +10,7 @@
       "category": "general",
       "title": "What is Lorem Ipsum?",
       "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "tags": ["Explorer", "Travel", "BP", "Destination"],
       "author": {
         "_id": "2dDclqr0Ak",
         "avatar": "assets/images/user.png"
@@ -21,6 +22,7 @@
           "_id": "Cj9n7b4lmn",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "1TOCNhRKEQAcunh8",
             "name": "James",
             "avatar": "assets/images/user.png"
           },
@@ -31,6 +33,7 @@
           "_id": "2DedZzSSDE",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "9JCMVZ2fQSrcH9i3",
             "name": "Jon",
             "avatar": "assets/images/user.png"
           },
@@ -41,6 +44,7 @@
           "_id": "t2iNrMWjrU",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "iZOKW47kqUEm4lfb",
             "name": "Doe",
             "avatar": "assets/images/user.png"
           },
@@ -51,6 +55,7 @@
           "_id": "zJFLi6igG0",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "6xvyEDySxvcqxcqk",
             "name": "James",
             "avatar": "assets/images/user.png"
           },
@@ -61,6 +66,7 @@
           "_id": "RhXmjI8HwN",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "2KMN7JP1gUQiZVF1",
             "name": "Jon",
             "avatar": "assets/images/user.png"
           },
@@ -71,6 +77,7 @@
           "_id": "zm1DmeWtYs",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "gbJ4RhYZc0N6xbKI",
             "name": "Doe",
             "avatar": "assets/images/user.png"
           },
@@ -81,6 +88,7 @@
           "_id": "WseZFngDt1",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "mTlINhAayEcP6vZo",
             "name": "James",
             "avatar": "assets/images/user.png"
           },
@@ -91,6 +99,7 @@
           "_id": "88bpv3enlS",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "K6aiGxYk37HRYDRa",
             "name": "Jon",
             "avatar": "assets/images/user.png"
           },
@@ -101,6 +110,7 @@
           "_id": "1pmNioA7cH",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "qAh98RwqVg4r6Lva",
             "name": "Doe",
             "avatar": "assets/images/user.png"
           },
@@ -115,6 +125,7 @@
       "category": "question",
       "title": "Why do we use it?",
       "text": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+      "tags": ["Explorer", "Travel", "BP", "Destination"],
       "author": {
         "_id": "2dDclqr0Ak",
         "avatar": "assets/images/user.png"
@@ -126,6 +137,7 @@
           "_id": "1FLglFVtzY",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "xKPuMiB9ARXV3JGh",
             "name": "Doe",
             "avatar": "assets/images/user.png"
           },
@@ -136,6 +148,7 @@
           "_id": "alWC9scFtf",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "I6iGVnmnbmKzfGU2",
             "name": "Doe",
             "avatar": "assets/images/user.png"
           },
@@ -146,6 +159,7 @@
           "_id": "mybmbWT6dX",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "AHhaXTUXE1xBvr9G",
             "name": "James",
             "avatar": "assets/images/user.png"
           },
@@ -160,6 +174,7 @@
       "category": "general",
       "title": "Where does it come from?",
       "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
+      "tags": ["Explorer", "Destination"],
       "author": {
         "_id": "wx6DBjhltT",
         "avatar": "assets/images/user.png"
@@ -171,6 +186,7 @@
           "_id": "N254FjrpfZ",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "pNgmxtashczzvuUh",
             "name": "James",
             "avatar": "assets/images/user.png"
           },
@@ -181,6 +197,7 @@
           "_id": "pYj2Eo9BRr",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "cUBeEc6HwUxpMGON",
             "name": "James",
             "avatar": "assets/images/user.png"
           },
@@ -191,6 +208,7 @@
           "_id": "dMC5VwXc30",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "noCXxATj4F0b2fAU",
             "name": "James",
             "avatar": "assets/images/user.png"
           },
@@ -205,6 +223,7 @@
       "category": "question",
       "title": "Where can I get some?",
       "text": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+      "tags": ["BP", "Destination"],
       "author": {
         "_id": "M9by889rUf",
         "avatar": "assets/images/user.png"
@@ -216,6 +235,7 @@
           "_id": "TpnagaC7KR",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "Z0zDmcDy3EgoiOy7",
             "name": "James",
             "avatar": "assets/images/user.png"
           },
@@ -226,6 +246,7 @@
           "_id": "NGDTFFedUg",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "Ug9TYB2epDHXW1oK",
             "name": "James",
             "avatar": "assets/images/user.png"
           },
@@ -236,6 +257,7 @@
           "_id": "aSLRc65hN6",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "X5wOFz9475CRxiv1",
             "name": "James",
             "avatar": "assets/images/user.png"
           },
@@ -250,6 +272,7 @@
       "category": "general",
       "title": "Ipsum is a fish text often",
       "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
+      "tags": ["Explorer", "Travel"],
       "author": {
         "_id": "BJXpp6AsE4",
         "avatar": "assets/images/user.png"
@@ -261,6 +284,7 @@
           "_id": "DlcszPow0h",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "jar30QA5j4kEetLY",
             "name": "James",
             "avatar": "assets/images/user.png"
           },
@@ -271,6 +295,7 @@
           "_id": "NQWIU4LZQ8",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "Kd7cqJSUpq8wB91h",
             "name": "James",
             "avatar": "assets/images/user.png"
           },
@@ -281,6 +306,7 @@
           "_id": "ZXdmuPyrI2",
           "text": "Lorem Ipsum is a fish text often used in print and web design. Lorem Ipsum has been the standard “fish” for Latin texts since the beginning of the 16th century. At that time, a nameless printer created a large collection of font sizes and shapes, using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes for five centuries, but also stepped into electronic design. Its popularization in modern times was the publication of Letraset sheets with Lorem Ipsum samples in the 60s and, more recently, electronic layout programs such as Aldus PageMaker, in the templates of which Lorem Ipsum was used.",
           "author": {
+            "_id": "zhXSsiXsRMkpT17B",
             "name": "James",
             "avatar": "assets/images/user.png"
           },
