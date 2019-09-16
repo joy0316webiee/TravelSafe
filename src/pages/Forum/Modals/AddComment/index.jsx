@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import ReactPagniate from 'react-paginate';
+import clsx from 'clsx';
 import uuid from 'uuidv4';
 
 import Comment from '../../Comment';
-import { sortByDate } from 'helpers/Date';
+import { today, sortByDate } from 'helpers/Date';
+import { isEmpty } from 'helpers/Validate';
 import { currentUser } from '../../dummy.json';
-import { today } from 'helpers/Date';
 
 import IconComment from 'assets/images/ic_comment_grey.png';
 import IconThumbup from 'assets/images/ic_thumbup_grey.png';
@@ -22,7 +23,8 @@ class AddComment extends Component {
     totalPages: 0,
     perPage: 3,
     offset: 0,
-    commented: false
+    commented: false,
+    errors: []
   };
 
   componentDidMount() {
@@ -82,22 +84,30 @@ class AddComment extends Component {
     return sortedComments.slice(offset, offset + perPage);
   };
 
-  handlePageChange = data => {
-    const { perPage } = this.state;
-    const currentPage = data.selected;
+  validateForm = () => {
+    const { commentText } = this.state;
 
-    this.setState(
-      {
-        offset: currentPage * perPage
-      },
-      () => this.updateDisplayComments()
-    );
+    let errors = [];
+    if (isEmpty(commentText)) errors.push('comment is empty');
+    return errors;
+  };
+
+  validateField = field => {
+    const { errors } = this.state;
+    return errors.some(err => err.toLowerCase().includes(field));
   };
 
   onCommentTextChange = e => this.setState({ commentText: e.target.value });
 
   onWriteCommentClick = e => {
+    const errors = this.validateForm();
+    if (errors.length > 0) {
+      this.setState({ errors });
+      return;
+    }
+
     const { commentText } = this.state;
+
     const newComment = {
       _id: uuid(),
       text: commentText,
@@ -114,6 +124,18 @@ class AddComment extends Component {
     });
   };
 
+  handlePageChange = data => {
+    const { perPage } = this.state;
+    const currentPage = data.selected;
+
+    this.setState(
+      {
+        offset: currentPage * perPage
+      },
+      () => this.updateDisplayComments()
+    );
+  };
+
   renderCommentsPane = () => {
     let {
       commentText,
@@ -123,10 +145,15 @@ class AddComment extends Component {
       displayComments
     } = this.state;
 
+    const classes = {
+      commentText: clsx(this.validateField('comment') && 'error')
+    };
+
     return (
       <div className="comments-pane">
         <div className="write-comment">
           <textarea
+            className={classes.commentText}
             value={commentText}
             placeholder="Comment"
             onChange={this.onCommentTextChange}

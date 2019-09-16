@@ -259,6 +259,9 @@
               background: #ddd;
             }
           }
+          .error {
+            border: 1px solid #f44336 !important;
+          }
         }
         .comments {
           max-height: 450px;
