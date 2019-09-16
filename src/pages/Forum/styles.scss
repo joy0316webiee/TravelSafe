@@ -2,22 +2,28 @@
 
 .forum-wrapper {
   height: 1990px;
-  background-image: url('../../assets/images/forum_feed_bg.png'),
-    url('../../assets/images/forum_header_bg.png');
-  background-position: bottom, top;
+  background-image: url('../../assets/images/forum_header_bg.png'),
+    url('../../assets/images/forum_feed_bg.png');
+  background-position: top, bottom;
   background-repeat: no-repeat, no-repeat;
   padding-top: 170px;
   padding-bottom: 130px;
-  overflow: hidden;
 
   @include screen-md {
-    padding-top: 91px;
+    height: auto;
+    padding-top: 90px;
+    padding-bottom: 95px;
   }
 
   > .header {
     margin-left: 120px;
     text-align: left;
     color: white;
+
+    @include screen-md {
+      margin-bottom: 5px;
+      margin-left: 0;
+    }
 
     h1 {
       margin: 0;
@@ -28,7 +34,8 @@
         font-size: 90px;
       }
       @include screen-md {
-        font-size: 70px;
+        font-size: 50px;
+        text-align: center;
       }
     }
     p {
@@ -41,7 +48,8 @@
         font-size: 30px;
       }
       @include screen-md {
-        font-size: 25px;
+        font-size: 20px;
+        text-align: center;
       }
     }
     .hamburger {
@@ -57,6 +65,10 @@
         left: 0;
         top: 0;
         list-style: none;
+
+        @include screen-sm {
+          padding-left: 10px;
+        }
 
         &.expanded {
           position: fixed;
@@ -76,6 +88,11 @@
             width: 40px;
             height: 40px;
             cursor: pointer;
+
+            @include screen-sm {
+              width: 30px;
+              height: 30px;
+            }
 
             span {
               display: block;
@@ -199,6 +216,11 @@
           width: 800px;
           height: 900px;
           transform: translate(-70%, -20%);
+
+          @include screen-sm {
+            width: 630px;
+            height: 750px;
+          }
         }
       }
       .overlay {
@@ -238,6 +260,9 @@
       }
       @include screen-md {
         order: 2;
+      }
+      @include screen-sm {
+        padding: 0 10px;
       }
 
       .tag-switcher {
@@ -351,6 +376,7 @@
         .pagination {
           list-style: none;
           display: inline-block;
+          padding: 0;
 
           @include screen-lg {
             font-size: 13px;

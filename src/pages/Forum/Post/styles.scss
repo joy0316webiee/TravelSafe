@@ -15,6 +15,11 @@
   @include screen-md {
     margin: 0 auto 16px;
   }
+  @include screen-sm {
+    max-height: 300px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);
@@ -24,6 +29,11 @@
   }
 
   .info {
+    @include screen-md {
+      display: flex;
+      align-items: center;
+    }
+
     .avatar {
       img {
         width: 50px;
@@ -35,6 +45,10 @@
           width: 45px;
           height: 45px;
         }
+        @include screen-sm {
+          width: 40px;
+          height: 40px;
+        }
       }
     }
     .feedback {
@@ -43,6 +57,11 @@
       justify-content: center;
       margin-top: 5px;
 
+      @include screen-sm {
+        margin-left: 15px;
+        flex-direction: row;
+      }
+
       > div {
         display: flex;
         justify-content: center;
@@ -50,6 +69,10 @@
 
         &.feedback-liked {
           margin-top: 0px;
+
+          @include screen-sm {
+            margin-left: 10px;
+          }
         }
 
         img {
@@ -83,11 +106,20 @@
     @include screen-lg {
       margin-left: 16px;
     }
+    @include screen-sm {
+      margin-top: 0px;
+      margin-left: 0;
+    }
 
     .header {
       display: flex;
       align-items: center;
       justify-content: space-between;
+
+      @include screen-sm {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
       .labels {
         display: flex;
@@ -169,6 +201,9 @@
 
       @include screen-md {
         -webkit-line-clamp: 3;
+      }
+      @include screen-sm {
+        -webkit-line-clamp: 8;
       }
 
       p {

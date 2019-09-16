@@ -12,13 +12,13 @@
 }
 
 @mixin screen-sm {
-  @media (max-width: 300px) {
+  @media (max-width: 735px) {
     @content;
   }
 }
 
 @mixin screen-xs {
-  @media (max-width: 300px) {
+  @media (max-width: 460px) {
     @content;
   }
 }

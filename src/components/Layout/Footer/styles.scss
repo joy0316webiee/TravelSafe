@@ -8,8 +8,12 @@
 
   .copyright {
     margin: 0 26px;
-    padding: 10px 0;
+    padding: 15px 0;
     border-top: 1px solid white;
+
+    @include screen-sm {
+      padding: 12px 0;
+    }
 
     p {
       margin: 0;
@@ -24,6 +28,12 @@
       }
       @include screen-md {
         font-size: 18px;
+      }
+      @include screen-sm {
+        font-size: 15px;
+      }
+      @include screen-xs {
+        font-size: 10px;
       }
     }
   }

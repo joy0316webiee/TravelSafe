@@ -12,16 +12,40 @@
   .comment-modal {
     background-color: white;
     width: 1000px;
-    position: relative;
-    margin: 10px auto;
+    height: 95vh;
     padding: 10px 30px 20px;
     border-radius: 10px;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+
+    @include screen-md {
+      width: 700px;
+    }
+    @include screen-sm {
+      width: 420px;
+      padding: 10px;
+    }
+    @include screen-xs {
+      width: 300px;
+      height: 550px;
+    }
 
     .modal-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding-right: 30px;
+
+      @include screen-sm {
+        padding-right: 20px;
+      }
+      @include screen-xs {
+        padding-right: 0px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
       .left-pane {
         display: flex;
@@ -32,21 +56,41 @@
             width: 60px;
             height: 60px;
             object-fit: contain;
+
+            @include screen-md {
+              width: 50px;
+              height: 50px;
+            }
           }
         }
         .info {
           margin-left: 20px;
+
+          @include screen-xs {
+            margin-left: 10px;
+          }
 
           h2 {
             margin: 0;
             font-size: 20px;
             font-family: Lucida Bright;
             color: #9acd32;
+
+            @include screen-md {
+              font-size: 17px;
+            }
+            @include screen-xs {
+              font-size: 14px;
+            }
           }
           .feedback {
             display: flex;
             align-items: center;
             margin-top: 10px;
+
+            @include screen-md {
+              margin-top: 5px;
+            }
 
             &-commented,
             &-liked {
@@ -65,6 +109,10 @@
                 color: #808080;
                 font-family: Segoe UI;
                 font-size: 13px;
+
+                @include screen-md {
+                  font-size: 12px;
+                }
               }
             }
             .like {
@@ -81,9 +129,20 @@
         }
       }
       .right-pane {
+        @include screen-xs {
+          margin-left: 57px;
+        }
+
         .date {
           color: #07c;
           font-size: 14px;
+
+          @include screen-md {
+            font-size: 13px;
+          }
+          @include screen-xs {
+            font-size: 12px;
+          }
         }
       }
       .close {
@@ -91,8 +150,14 @@
         right: 20px;
         top: 15px;
 
+        @include screen-sm {
+          right: 4px;
+          top: 8px;
+        }
+
         button {
           border: none;
+          background-color: transparent;
           font-size: 20px;
           color: #808080;
           cursor: pointer;
@@ -103,11 +168,23 @@
       .forum-text {
         border-bottom: 1px solid #ddd;
 
+        @include screen-xs {
+          max-height: 100px;
+          overflow: auto;
+        }
+
         p {
           padding-right: 20px;
           text-align: justify;
           font-size: 15px;
           color: #333;
+
+          @include screen-md {
+            font-size: 13px;
+          }
+          @include screen-sm {
+            font-size: 12px;
+          }
         }
       }
       .comments-pane {
@@ -116,6 +193,13 @@
           display: flex;
           justify-content: space-between;
           align-items: flex-end;
+
+          @include screen-sm {
+            margin-top: 15px;
+          }
+          @include screen-xs {
+            margin-top: 4px;
+          }
 
           textarea {
             width: 830px;
@@ -126,6 +210,23 @@
             border-color: #808080;
             margin: 0px;
             resize: none;
+
+            @include screen-md {
+              width: 550px;
+              height: 80px;
+              font-size: 12px;
+            }
+            @include screen-sm {
+              width: 320px;
+              height: 70px;
+              padding: 5px;
+            }
+            @include screen-xs {
+              width: 200px;
+              height: 50px;
+              padding: 3px;
+              font-size: 11px;
+            }
           }
           button {
             font-size: 15px;
@@ -135,6 +236,21 @@
             background: #00b0cc;
             border-radius: 10px;
             cursor: pointer;
+
+            @include screen-md {
+              padding: 8px 15px;
+              font-size: 13px;
+            }
+            @include screen-sm {
+              margin-right: 10px;
+              padding: 8px 15px;
+              font-size: 12px;
+            }
+            @include screen-xs {
+              margin-right: 10px;
+              padding: 8px 15px;
+              font-size: 10px;
+            }
 
             &:hover {
               background: darken(#00b0cc, 5%);
@@ -148,6 +264,17 @@
           max-height: 450px;
           margin-top: 15px;
           overflow: auto;
+
+          @include screen-md {
+            max-height: 400px;
+          }
+          @include screen-sm {
+            max-height: 350px;
+          }
+          @include screen-xs {
+            margin-top: 5px;
+            max-height: 260px;
+          }
 
           &::-webkit-scrollbar {
             width: 5px;
@@ -168,6 +295,10 @@
           .pagination {
             list-style: none;
             display: inline-block;
+
+            @include screen-sm {
+              padding: 0;
+            }
 
             li {
               display: inline-block;

@@ -7,7 +7,10 @@
   top: 0;
 
   @include screen-md {
-    padding: 30px 40px;
+    padding: 0px 20px;
+  }
+  @include screen-sm {
+    padding: 0px 10px;
   }
 
   .menu {
@@ -26,6 +29,12 @@
     @include screen-md {
       font-size: 20px;
     }
+    @include screen-sm {
+      font-size: 18px;
+    }
+    @include screen-xs {
+      font-size: 13px;
+    }
 
     > li {
       position: relative;
@@ -36,6 +45,12 @@
 
       @include screen-md {
         margin: 0 25px;
+      }
+      @include screen-sm {
+        margin: 0px 10px;
+      }
+      @include screen-xs {
+        margin: 0px 4px;
       }
 
       &.signin {
@@ -141,6 +156,10 @@
           width: 60px;
           height: 60px;
           object-fit: contain;
+        }
+        @include screen-xs {
+          width: 45px;
+          height: 45px;
         }
       }
     }

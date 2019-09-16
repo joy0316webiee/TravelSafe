@@ -11,11 +11,24 @@
 
   .post-modal {
     width: 700px;
-    margin: 100px auto;
     border-radius: 10px;
     padding: 20px;
-    position: relative;
     background-color: white;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+
+    @include screen-md {
+      width: 550px;
+    }
+    @include screen-sm {
+      width: 420px;
+    }
+    @include screen-xs {
+      width: 300px;
+      padding: 10px;
+    }
 
     .modal-header {
       h2 {
@@ -23,18 +36,27 @@
         font-family: Lucida Bright;
         font-size: 20px;
         color: #9acd32;
+
+        @include screen-md {
+          font-size: 17px;
+        }
       }
       button {
         position: absolute;
         right: 7px;
         top: 7px;
         border: none;
+        background-color: transparent;
         font-size: 20px;
         color: #808080;
       }
     }
     .modal-content {
       margin-top: 20px;
+
+      @include screen-md {
+        margin-top: 16px;
+      }
 
       > div {
         margin-bottom: 15px;
@@ -67,6 +89,10 @@
           background-color: white;
           font-size: 13px;
           color: #333;
+
+          @include screen-sm {
+            width: 100%;
+          }
         }
       }
       .message {
@@ -79,6 +105,10 @@
           border-radius: 5px;
           border: 1px solid #ccc;
           color: #333;
+
+          @include screen-md {
+            width: 100%;
+          }
         }
       }
       .error {

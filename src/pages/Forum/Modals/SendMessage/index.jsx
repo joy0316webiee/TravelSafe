@@ -54,7 +54,9 @@ class SendMessage extends Component {
           </div>
           <div className="message">
             <textarea placeholder="Message to Backpacker" />
-            <button>Send</button>
+            <div className="submit">
+              <button>Send</button>
+            </div>
           </div>
         </div>
       </ReactModal>
