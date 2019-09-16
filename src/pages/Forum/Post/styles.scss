@@ -10,6 +10,7 @@
   border-radius: 10px;
   padding: 7px 13px 15px 23px;
   display: flex;
+  transition: 0.3s ease;
   cursor: pointer;
 
   @include screen-md {

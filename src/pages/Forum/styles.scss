@@ -350,7 +350,6 @@
       .posts {
         padding-top: 80px;
         max-width: 1050px;
-        transition: 0.3s ease;
         animation: slide-from-left 0.8s;
 
         @include screen-lg {
