@@ -184,35 +184,6 @@ class Forum extends Component {
         <div className="header">
           <h1>Forum</h1>
           <p>Connect, travel and share</p>
-          <div className="hamburger">
-            <ul className={classes.menu}>
-              <li className="icon-wrapper" onClick={this.onToggleHamburger}>
-                <span className={classes.icon}></span>
-              </li>
-              <li className="post" onClick={this.handleModalPostShow}>
-                <button>Post</button>
-              </li>
-              <li className="search">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  onChange={this.onSearchTermChange}
-                  onKeyDown={this.onSearchTermKeyDown}
-                />
-              </li>
-              {tags.map(tag => (
-                <li
-                  key={tag}
-                  className={classes.tag(tag)}
-                  onClick={() => this.handleTagSwitch(tag)}
-                >
-                  {tag}
-                </li>
-              ))}
-            </ul>
-            <div className={classes.background}></div>
-            <div className={classes.overlay}></div>
-          </div>
         </div>
         <div className="content">
           <div className="left-pane">
@@ -223,13 +194,36 @@ class Forum extends Component {
               </div>
             </div>
             <div className="search-area">
-              <input
-                type="text"
-                value={searchTerm}
-                placeholder="Search"
-                onChange={this.onSearchTermChange}
-                onKeyDown={this.onSearchTermKeyDown}
-              />
+              <div className="hamburger">
+                <ul className={classes.menu}>
+                  <li className="icon-wrapper" onClick={this.onToggleHamburger}>
+                    <span className={classes.icon}></span>
+                  </li>
+                  <li className="post" onClick={this.handleModalPostShow}>
+                    <button>Post</button>
+                  </li>
+                  {tags.map(tag => (
+                    <li
+                      key={tag}
+                      className={classes.tag(tag)}
+                      onClick={() => this.handleTagSwitch(tag)}
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+                <div className={classes.background}></div>
+                <div className={classes.overlay}></div>
+              </div>
+              <div className="search-field">
+                <input
+                  type="text"
+                  value={searchTerm}
+                  placeholder="Search"
+                  onChange={this.onSearchTermChange}
+                  onKeyDown={this.onSearchTermKeyDown}
+                />
+              </div>
             </div>
             <div className="posts">
               {displayPosts.length > 0 ? (

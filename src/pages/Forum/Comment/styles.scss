@@ -3,6 +3,13 @@
 .comment-wrapper {
   margin-bottom: 10px;
 
+  &.by-me {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 4px;
+    margin: 2px;
+    border-radius: 5px;
+  }
+
   .comment-header {
     display: flex;
     align-items: center;
@@ -53,7 +60,7 @@
           }
 
           &.by-me {
-            color: #a4ff00;
+            color: #27a750;
           }
         }
         .best {

@@ -2,9 +2,9 @@
 
 .forum-wrapper {
   height: 1990px;
-  background-image: url('../../assets/images/forum_header_bg.png'),
-    url('../../assets/images/forum_feed_bg.png');
-  background-position: top, bottom;
+  background-image: url('../../assets/images/forum_feed_bg.png'),
+    url('../../assets/images/forum_header_bg.png');
+  background-position: bottom, top;
   background-repeat: no-repeat, no-repeat;
   padding-top: 170px;
   padding-bottom: 130px;
@@ -13,6 +13,9 @@
     height: auto;
     padding-top: 90px;
     padding-bottom: 95px;
+    background-image: url('../../assets/images/forum_header_bg.png'),
+      url('../../assets/images/forum_feed_bg.png');
+    background-position: top, bottom;
   }
 
   > .header {
@@ -21,8 +24,7 @@
     color: white;
 
     @include screen-md {
-      margin-bottom: 5px;
-      margin-left: 0;
+      margin: 30px 0 5px 0;
     }
 
     h1 {
@@ -50,195 +52,6 @@
       @include screen-md {
         font-size: 20px;
         text-align: center;
-      }
-    }
-    .hamburger {
-      display: none;
-
-      @include screen-md {
-        display: block;
-      }
-
-      .menu {
-        z-index: 10;
-        position: absolute;
-        left: 0;
-        top: 0;
-        list-style: none;
-
-        @include screen-sm {
-          padding-left: 10px;
-        }
-
-        &.expanded {
-          position: fixed;
-
-          > li {
-            display: block;
-          }
-        }
-
-        > li {
-          display: none;
-          padding: 10px;
-
-          &.icon-wrapper {
-            display: block !important;
-            position: relative;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-
-            @include screen-sm {
-              width: 30px;
-              height: 30px;
-            }
-
-            span {
-              display: block;
-              width: 80%;
-              height: 3px;
-              background-color: #fff;
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-              transition: 0.5s;
-
-              &.crossed {
-                background-color: transparent;
-                box-shadow: none;
-
-                &::before,
-                &::after {
-                  top: 0;
-                }
-                &::before {
-                  transform: rotate(45deg);
-                }
-                &::after {
-                  transform: rotate(135deg);
-                }
-              }
-
-              &::before,
-              &::after {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 3px;
-                background-color: #fff;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-                transition: 0.5s;
-              }
-              &::before {
-                top: -8px;
-              }
-              &::after {
-                top: 8px;
-              }
-            }
-          }
-          &.post {
-            margin-left: -10px;
-            margin-top: 20px;
-
-            button {
-              width: 80px;
-              height: 30px;
-              background-color: transparent;
-              border-radius: 3px;
-              border: 1px solid #ffffff;
-              color: white;
-              font-family: Segoe UI;
-              font-weight: bold;
-              font-size: 15px;
-              cursor: pointer;
-            }
-          }
-          &.search {
-            margin: 10px 0 20px -10px;
-
-            input {
-              width: 150px;
-              height: 35px;
-              border: 1px solid #ffffff;
-              background: transparent;
-              border-radius: 3px;
-              color: #ffffff;
-              padding: 2px 5px;
-              font-size: 15px;
-
-              &::placeholder {
-                color: #ffffff;
-              }
-              &::-webkit-search-cancel-button {
-                background-color: #ffffff;
-              }
-            }
-          }
-          &.tag {
-            cursor: pointer;
-            position: relative;
-
-            &.active {
-              &:before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 0px;
-                transform: translateY(-50%);
-                width: 2px;
-                height: 28px;
-                background-color: #ffffff;
-              }
-            }
-          }
-        }
-      }
-      .background {
-        width: 0;
-        height: 0;
-        border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          darken(#e94498, 10%),
-          darken(#b81568, 20%)
-        );
-        transition: 0.3s ease;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 9;
-
-        &.expanded {
-          width: 800px;
-          height: 900px;
-          transform: translate(-70%, -20%);
-
-          @include screen-sm {
-            width: 630px;
-            height: 750px;
-          }
-        }
-      }
-      .overlay {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.4);
-        z-index: 8;
-        display: none;
-
-        @include screen-md {
-          &.covered {
-            display: block;
-          }
-        }
       }
     }
   }
@@ -305,46 +118,232 @@
         width: 100%;
         height: 72px;
         max-width: 1050px;
-        background-color: #393939;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         margin-top: 120px;
         position: -webkit-sticky;
         position: sticky;
         top: 0px;
-        border-radius: 20px;
         z-index: 2;
 
         @include screen-lg {
           height: 80px;
         }
         @include screen-md {
-          display: none;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 60px;
+          margin-top: 70px;
+        }
+        @include screen-sm {
+          height: 52px;
         }
 
-        input {
-          width: 89%;
-          height: 40px;
-          padding: 10px 20px;
-          border-radius: 5px;
-          font-family: Segoe UI;
-          font-weight: bold;
-          font-size: 20px;
-          border: none;
-          background: white url('../../assets/images/ic_search_grey.png')
-            no-repeat 99% 50% / contain;
+        .hamburger {
+          display: none;
 
-          &::placeholder {
-            color: #cfcece;
-          }
-
-          @include screen-lg {
-            font-size: 15px;
-            height: 40px;
-          }
           @include screen-md {
-            height: 35px;
+            display: block;
+          }
+
+          .menu {
+            z-index: 10;
+            list-style: none;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            @include screen-sm {
+              padding-left: 10px;
+              top: -5px;
+            }
+
+            &.expanded {
+              > li {
+                display: block;
+              }
+            }
+
+            > li {
+              display: none;
+              padding: 10px;
+              color: #ffffff;
+
+              &.icon-wrapper {
+                display: block !important;
+                position: relative;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+
+                @include screen-sm {
+                  width: 30px;
+                  height: 30px;
+                }
+
+                span {
+                  display: block;
+                  width: 80%;
+                  height: 3px;
+                  background-color: #fff;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                  transition: 0.5s;
+
+                  &.crossed {
+                    background-color: transparent;
+                    box-shadow: none;
+
+                    &::before,
+                    &::after {
+                      top: 0;
+                    }
+                    &::before {
+                      transform: rotate(45deg);
+                    }
+                    &::after {
+                      transform: rotate(135deg);
+                    }
+                  }
+
+                  &::before,
+                  &::after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 3px;
+                    background-color: #fff;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                    transition: 0.5s;
+                  }
+                  &::before {
+                    top: -8px;
+                  }
+                  &::after {
+                    top: 8px;
+                  }
+                }
+              }
+              &.post {
+                margin-left: -10px;
+                margin-top: 20px;
+
+                button {
+                  width: 80px;
+                  height: 30px;
+                  background-color: transparent;
+                  border-radius: 3px;
+                  border: 1px solid #ffffff;
+                  color: white;
+                  font-family: Segoe UI;
+                  font-weight: bold;
+                  font-size: 15px;
+                  cursor: pointer;
+                }
+              }
+              &.tag {
+                cursor: pointer;
+                position: relative;
+
+                &.active {
+                  &:before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 0px;
+                    transform: translateY(-50%);
+                    width: 2px;
+                    height: 28px;
+                    background-color: #ffffff;
+                  }
+                }
+              }
+            }
+          }
+          .background {
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(
+              circle,
+              darken(#e94498, 10%),
+              darken(#b81568, 20%)
+            );
+            transition: 0.3s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9;
+
+            &.expanded {
+              width: 500px;
+              height: 600px;
+              transform: translate(-70%, -20%);
+            }
+          }
+          .overlay {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 8;
+            display: none;
+
+            @include screen-md {
+              &.covered {
+                display: block;
+              }
+            }
+          }
+        }
+        .search-field {
+          height: 100%;
+          background-color: #393939;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 20px;
+
+          @include screen-md {
+            width: 92%;
+            margin-left: 20px;
+          }
+          @include screen-sm {
+            width: 90%;
+          }
+          @include screen-xs {
+            width: 85%;
+          }
+
+          input {
+            width: 89%;
+            height: 40px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-family: Segoe UI;
+            font-weight: bold;
+            font-size: 20px;
+            border: none;
+            background: white url('../../assets/images/ic_search_grey.png')
+              no-repeat 99% 50% / contain;
+
+            @include screen-lg {
+              font-size: 15px;
+              height: 40px;
+            }
+            @include screen-md {
+              height: 30px;
+            }
+
+            &::placeholder {
+              color: #cfcece;
+            }
           }
         }
       }

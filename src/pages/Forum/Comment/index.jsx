@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import clsx from 'clsx';
 
 import { currentUser } from '../dummy.json';
 
@@ -39,9 +40,15 @@ class Comment extends Component {
 
   render() {
     const { comment, liked, highlighted } = this.state;
+    const classes = {
+      wrapper: clsx(
+        'comment-wrapper',
+        comment.author._id === currentUser._id && 'by-me'
+      )
+    };
 
     return (
-      <div className="comment-wrapper">
+      <div className={classes.wrapper}>
         <div className="comment-header">
           <div className="left-pane">
             <div className="avatar">
