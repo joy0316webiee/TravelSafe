@@ -10,6 +10,7 @@ import MakePost from './Modals/MakePost';
 import { isToday, sortByDate } from 'helpers/Date';
 import { posts, currentUser } from './dummy.json';
 
+import IconSearch from 'assets/images/ic_search_grey.png';
 import './styles.scss';
 class Forum extends Component {
   state = {
@@ -94,6 +95,8 @@ class Forum extends Component {
       totalPosts.filter(post => post.category === 'backpacker' && !post.closed)
     ).slice(0, 3);
   };
+
+  onSearchIconClick = () => this.updateDisplayPosts();
 
   onSearchTermChange = e => this.setState({ searchTerm: e.target.value });
 
@@ -215,14 +218,21 @@ class Forum extends Component {
                 <div className={classes.background}></div>
                 <div className={classes.overlay}></div>
               </div>
-              <div className="search-field">
-                <input
-                  type="text"
-                  value={searchTerm}
-                  placeholder="Search"
-                  onChange={this.onSearchTermChange}
-                  onKeyDown={this.onSearchTermKeyDown}
-                />
+              <div className="search-field__wrapper">
+                <div className="search-field">
+                  <input
+                    type="text"
+                    value={searchTerm}
+                    placeholder="Search"
+                    onChange={this.onSearchTermChange}
+                    onKeyDown={this.onSearchTermKeyDown}
+                  />
+                  <img
+                    src={IconSearch}
+                    alt="search"
+                    onClick={this.onSearchIconClick}
+                  />
+                </div>
               </div>
             </div>
             <div className="posts">

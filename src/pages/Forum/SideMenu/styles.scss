@@ -5,7 +5,7 @@
   height: 880px;
   background-color: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(50px);
-  border-radius: 50px 0px 0px 50px;
+  border-radius: 50px 0px 0px 0px;
   padding: 40px 0 20px 20px;
   margin-top: 80px;
   position: -webkit-sticky;
@@ -17,13 +17,6 @@
     height: 800px;
     padding: 40px 0 20px 20px;
     top: 40px;
-  }
-  @include screen-md {
-    height: 710px;
-    position: unset;
-    border-radius: 30px;
-    margin-top: 30px;
-    padding: 30px 0 14px 20px;
   }
 
   .today-posts {
