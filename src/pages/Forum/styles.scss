@@ -11,6 +11,7 @@
 
   @include screen-md {
     height: auto;
+    min-height: 100vh;
     padding-top: 90px;
     padding-bottom: 95px;
     background-image: url('../../assets/images/forum_header_bg.png'),
