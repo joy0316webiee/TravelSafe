@@ -132,9 +132,11 @@
         @include screen-md {
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: space-around;
           height: 60px;
           margin-top: 70px;
+          background-color: #393939;
+          padding: 0 20px;
         }
         @include screen-sm {
           height: 52px;
@@ -147,174 +149,171 @@
             display: block;
           }
 
-          .menu {
-            z-index: 10;
-            list-style: none;
-            padding: 0;
-            position: absolute;
-            top: 0;
-            left: 0;
+          .icon-wrapper {
+            display: block !important;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
 
             @include screen-sm {
-              padding-left: 10px;
-              top: -5px;
+              width: 30px;
+              height: 30px;
             }
 
-            &.expanded {
-              > li {
-                display: block;
-              }
-            }
+            span {
+              display: block;
+              width: 80%;
+              height: 3px;
+              background-color: #fff;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+              transition: 0.3s;
 
-            > li {
-              display: none;
-              padding: 10px;
-              color: #ffffff;
+              &.crossed {
+                background-color: transparent;
+                box-shadow: none;
 
-              &.icon-wrapper {
-                display: block !important;
-                position: relative;
-                width: 40px;
-                height: 40px;
-                cursor: pointer;
-
-                @include screen-sm {
-                  width: 30px;
-                  height: 30px;
+                &::before,
+                &::after {
+                  top: 0;
                 }
-
-                span {
-                  display: block;
-                  width: 80%;
-                  height: 3px;
-                  background-color: #fff;
-                  position: absolute;
-                  top: 50%;
-                  left: 50%;
-                  transform: translate(-50%, -50%);
-                  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-                  transition: 0.5s;
-
-                  &.crossed {
-                    background-color: transparent;
-                    box-shadow: none;
-
-                    &::before,
-                    &::after {
-                      top: 0;
-                    }
-                    &::before {
-                      transform: rotate(45deg);
-                    }
-                    &::after {
-                      transform: rotate(135deg);
-                    }
-                  }
-
-                  &::before,
-                  &::after {
-                    content: '';
-                    position: absolute;
-                    width: 100%;
-                    height: 3px;
-                    background-color: #fff;
-                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-                    transition: 0.5s;
-                  }
-                  &::before {
-                    top: -8px;
-                  }
-                  &::after {
-                    top: 8px;
-                  }
+                &::before {
+                  transform: rotate(45deg);
+                }
+                &::after {
+                  transform: rotate(135deg);
                 }
               }
-              &.post {
-                margin-left: -10px;
-                margin-top: 20px;
 
-                button {
-                  width: 80px;
-                  height: 30px;
-                  background-color: transparent;
-                  border-radius: 3px;
-                  border: 1px solid #ffffff;
-                  color: white;
-                  font-family: Segoe UI;
-                  font-weight: bold;
-                  font-size: 15px;
-                  cursor: pointer;
-                }
+              &::before,
+              &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                background-color: #fff;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                transition: 0.5s;
               }
-              &.tag {
-                cursor: pointer;
-                position: relative;
-
-                &.active {
-                  &:before {
-                    content: '';
-                    position: absolute;
-                    top: 50%;
-                    left: 0px;
-                    transform: translateY(-50%);
-                    width: 2px;
-                    height: 28px;
-                    background-color: #ffffff;
-                  }
-                }
+              &::before {
+                top: -8px;
+              }
+              &::after {
+                top: 8px;
               }
             }
           }
-          .background {
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: radial-gradient(
-              circle,
-              darken(#e94498, 10%),
-              darken(#b81568, 20%)
-            );
-            transition: 0.3s ease;
+          .menu-wrapper {
+            z-index: 10;
             position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 9;
-
-            &.expanded {
-              width: 500px;
-              height: 600px;
-              transform: translate(-70%, -20%);
-            }
-          }
-          .overlay {
-            content: '';
-            position: fixed;
-            top: 0;
+            top: 100%;
             left: 0;
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            z-index: 8;
-            display: none;
+            height: 0;
+            overflow: hidden;
+            background-color: lighten(#393939, 2%);
+            transition: height 0.3s ease-out;
 
-            @include screen-md {
-              &.covered {
-                display: block;
+            &.expanded {
+              height: 70px;
+            }
+
+            .menu {
+              list-style: none;
+              width: 100%;
+              margin: 0;
+              padding: 10px 60px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+
+              @include screen-sm {
+                padding-left: 10px;
+                top: -5px;
+              }
+
+              > li {
+                padding: 10px;
+                color: #ffffff;
+
+                @include screen-sm {
+                  font-size: 14px;
+                }
+                @include screen-xs {
+                  font-size: 11px;
+                }
+
+                &.post {
+                  margin-right: 50px;
+
+                  @include screen-sm {
+                    margin-right: 30px;
+                  }
+                  @include screen-xs {
+                    margin-right: 10px;
+                  }
+
+                  button {
+                    width: 80px;
+                    height: 30px;
+                    background-color: transparent;
+                    border-radius: 3px;
+                    border: 1px solid #ffffff;
+                    color: white;
+                    font-family: Segoe UI;
+                    font-weight: bold;
+                    font-size: 15px;
+                    cursor: pointer;
+
+                    @include screen-sm {
+                      width: 50px;
+                      height: 30px;
+                      font-size: 14px;
+                    }
+                    @include screen-xs {
+                      width: 40px;
+                      height: 25px;
+                      font-size: 12px;
+                    }
+                  }
+                }
+                &.tag {
+                  cursor: pointer;
+                  position: relative;
+
+                  &.active {
+                    &:before {
+                      content: '';
+                      position: absolute;
+                      bottom: 0;
+                      left: 50%;
+                      transform: translateX(-50%);
+                      width: 90%;
+                      height: 2px;
+                      background-color: #ffffff;
+                    }
+                  }
+                }
               }
             }
           }
         }
         .search-field__wrapper {
           height: 100%;
-          background-color: #393939;
           display: flex;
           align-items: center;
           justify-content: center;
-          border-radius: 20px;
+          border-radius: 25px;
+          background-color: #393939;
 
           @include screen-md {
             width: 92%;
             margin-left: 20px;
+            border-radius: 0;
           }
           @include screen-sm {
             width: 90%;
@@ -338,6 +337,7 @@
             }
             @include screen-md {
               height: 30px;
+              width: 100%;
             }
 
             input {

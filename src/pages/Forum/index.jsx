@@ -175,9 +175,7 @@ class Forum extends Component {
     } = this.state;
 
     const classes = {
-      background: clsx('background', openHamburger && 'expanded'),
-      overlay: clsx('overlay', openHamburger && 'covered'),
-      menu: clsx('menu', openHamburger && 'expanded'),
+      menuWrapper: clsx('menu-wrapper', openHamburger && 'expanded'),
       icon: clsx('icon', openHamburger && 'crossed'),
       tag: tag => clsx('tag', selectedTag === tag && 'active')
     };
@@ -198,25 +196,25 @@ class Forum extends Component {
             </div>
             <div className="search-area">
               <div className="hamburger">
-                <ul className={classes.menu}>
-                  <li className="icon-wrapper" onClick={this.onToggleHamburger}>
-                    <span className={classes.icon}></span>
-                  </li>
-                  <li className="post" onClick={this.handleModalPostShow}>
-                    <button>Post</button>
-                  </li>
-                  {tags.map(tag => (
-                    <li
-                      key={tag}
-                      className={classes.tag(tag)}
-                      onClick={() => this.handleTagSwitch(tag)}
-                    >
-                      {tag}
+                <div className="icon-wrapper" onClick={this.onToggleHamburger}>
+                  <span className={classes.icon}></span>
+                </div>
+                <div className={classes.menuWrapper}>
+                  <ul className="menu">
+                    <li className="post" onClick={this.handleModalPostShow}>
+                      <button>Post</button>
                     </li>
-                  ))}
-                </ul>
-                <div className={classes.background}></div>
-                <div className={classes.overlay}></div>
+                    {tags.map(tag => (
+                      <li
+                        key={tag}
+                        className={classes.tag(tag)}
+                        onClick={() => this.handleTagSwitch(tag)}
+                      >
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
               <div className="search-field__wrapper">
                 <div className="search-field">

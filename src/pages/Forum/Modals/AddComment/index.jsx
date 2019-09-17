@@ -196,7 +196,6 @@ class AddComment extends Component {
     return (
       <ReactModal
         isOpen={showModal}
-        onRequestClose={onClose}
         className="comment-modal"
         overlayClassName="comment-overlay"
       >

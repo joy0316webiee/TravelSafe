@@ -102,7 +102,6 @@ class MakePost extends Component {
     return (
       <ReactModal
         isOpen={showModal}
-        onRequestClose={onClose}
         className="post-modal"
         overlayClassName="post-overlay"
       >

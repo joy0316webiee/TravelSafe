@@ -20,7 +20,6 @@ class SendMessage extends Component {
     return (
       <ReactModal
         isOpen={showModal}
-        onRequestClose={onClose}
         className="message-modal"
         overlayClassName="message-overlay"
       >
