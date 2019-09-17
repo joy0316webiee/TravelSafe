@@ -12,7 +12,7 @@
 }
 
 @mixin screen-sm {
-  @media (max-width: 735px) {
+  @media (max-width: 768px) {
     @content;
   }
 }

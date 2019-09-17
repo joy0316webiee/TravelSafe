@@ -84,6 +84,11 @@
         align-items: center;
 
         @include screen-md {
+          margin-top: 70px;
+          margin-left: 0;
+          justify-content: center;
+        }
+        @include screen-sm {
           display: none;
         }
 
@@ -127,10 +132,13 @@
           height: 80px;
         }
         @include screen-md {
+          margin-top: 30px;
+        }
+        @include screen-sm {
           display: flex;
           align-items: center;
           justify-content: space-around;
-          height: 60px;
+          height: 52px;
           margin-top: 70px;
           background-color: #393939;
           padding: 0 20px;
@@ -140,14 +148,11 @@
             margin-bottom: 60px;
           }
         }
-        @include screen-sm {
-          height: 52px;
-        }
 
         .hamburger {
           display: none;
 
-          @include screen-md {
+          @include screen-sm {
             display: block;
           }
 
@@ -313,12 +318,12 @@
           background-color: #393939;
 
           @include screen-md {
-            width: 92%;
-            margin-left: 20px;
-            border-radius: 0;
+            margin: 0 20px;
           }
           @include screen-sm {
             width: 90%;
+            margin-left: 20px;
+            border-radius: 0;
           }
           @include screen-xs {
             width: 85%;
@@ -339,6 +344,8 @@
             }
             @include screen-md {
               height: 30px;
+            }
+            @include screen-sm {
               width: 100%;
             }
 
