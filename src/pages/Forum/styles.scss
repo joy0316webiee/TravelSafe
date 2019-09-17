@@ -134,6 +134,11 @@
           margin-top: 70px;
           background-color: #393939;
           padding: 0 20px;
+          transition: margin-bottom 0.3s ease;
+
+          &.expanded {
+            margin-bottom: 60px;
+          }
         }
         @include screen-sm {
           height: 52px;

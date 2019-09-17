@@ -176,6 +176,7 @@ class Forum extends Component {
 
     const classes = {
       menuWrapper: clsx('menu-wrapper', openHamburger && 'expanded'),
+      searchArea: clsx('search-area', openHamburger && 'expanded'),
       icon: clsx('icon', openHamburger && 'crossed'),
       tag: tag => clsx('tag', selectedTag === tag && 'active')
     };
@@ -194,7 +195,7 @@ class Forum extends Component {
                 <button onClick={this.handleModalPostShow}>Make a post</button>
               </div>
             </div>
-            <div className="search-area">
+            <div className={classes.searchArea}>
               <div className="hamburger">
                 <div className="icon-wrapper" onClick={this.onToggleHamburger}>
                   <span className={classes.icon}></span>
