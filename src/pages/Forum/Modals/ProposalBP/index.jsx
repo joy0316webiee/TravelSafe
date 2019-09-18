@@ -5,7 +5,7 @@ import './styles.scss';
 
 ReactModal.setAppElement('#root');
 
-class SendMessage extends Component {
+class ProposalBP extends Component {
   state = { ...this.props };
 
   componentDidUpdate(prevProps, prevState) {
@@ -20,8 +20,8 @@ class SendMessage extends Component {
     return (
       <ReactModal
         isOpen={showModal}
-        className="message-modal"
-        overlayClassName="message-overlay"
+        className="proposal-modal"
+        overlayClassName="proposal-overlay"
       >
         <div className="modal-header">
           <div className="left-pane">
@@ -60,4 +60,4 @@ class SendMessage extends Component {
   }
 }
 
-export default SendMessage;
+export default ProposalBP;

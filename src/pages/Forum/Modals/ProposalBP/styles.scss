@@ -1,6 +1,6 @@
 @import 'assets/scss/base.scss';
 
-.message-overlay {
+.proposal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +9,7 @@
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 10;
 
-  .message-modal {
+  .proposal-modal {
     background-color: white;
     width: 1000px;
     transform: translate(-50%, -50%);

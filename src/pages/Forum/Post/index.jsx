@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import AddComment from '../Modals/AddComment';
-import SendMessage from '../Modals/SendMessage';
+import ProposalBP from '../Modals/ProposalBP';
 
 import IconComment from 'assets/images/ic_comment_white.png';
 import IconThumbup from 'assets/images/ic_thumbup_white.png';
@@ -95,7 +95,7 @@ class Post extends Component {
         </div>
 
         {isBackPacker ? (
-          <SendMessage
+          <ProposalBP
             showModal={openModal}
             post={post}
             onClose={this.handleModalClose}
