@@ -51,11 +51,8 @@ class SendMessage extends Component {
           <div className="text">
             <p>{post.text}</p>
           </div>
-          <div className="message">
-            <textarea placeholder="Message to Backpacker" />
-            <div className="submit">
-              <button>Send</button>
-            </div>
+          <div className="send-profile">
+            <button>Send Profile</button>
           </div>
         </div>
       </ReactModal>
