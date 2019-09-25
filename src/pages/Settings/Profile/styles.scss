@@ -1,0 +1,190 @@
+@import 'assets/scss/base.scss';
+
+.profile-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: white url('../../../assets/images/setting_bg1.png') no-repeat;
+  background-size: cover;
+  padding: 200px 0 80px 385px;
+
+  .container {
+    width: 730px;
+    background: #b4b4b4 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    margin-left: 66px;
+    padding: 25px 60px 50px 25px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    .left-pane {
+      .header {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 80px;
+          height: 80px;
+          object-fit: contain;
+        }
+        button {
+          width: 120px;
+          height: 40px;
+          background: #000000 0% 0% no-repeat padding-box;
+          border-radius: 3px;
+          letter-spacing: 0;
+          color: #ffffff;
+          font-family: Segoe UI;
+          font-size: 17px;
+          margin-left: 20px;
+          cursor: pointer;
+
+          &:hover {
+            background: rgba(0, 0, 0, 0.8);
+          }
+        }
+      }
+      .content {
+        margin-top: 20px;
+
+        &-row {
+          display: flex;
+          align-items: flex-end;
+
+          > div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+
+            label {
+              letter-spacing: 0;
+              color: #ffffff;
+              font-size: 18px;
+              font-family: Segoe UI;
+            }
+            img {
+              width: 30px;
+              height: 30px;
+              object-fit: contain;
+            }
+            input {
+              margin-top: 4px;
+              background: #ffffff 0% 0% no-repeat padding-box;
+              border: 1px solid #707070;
+              border-radius: 5px;
+              width: 150px;
+              height: 35px;
+              letter-spacing: 0;
+              font-family: Segoe UI;
+              font-size: 14px;
+              padding: 8px;
+
+              &::placeholder {
+                color: #beb6b6;
+              }
+            }
+
+            &:nth-child(2) {
+              margin-left: 20px;
+            }
+          }
+        }
+      }
+    }
+    .right-pane {
+      h2 {
+        letter-spacing: 0;
+        color: #ffffff;
+        font-size: 20px;
+        font-family: Segoe UI;
+      }
+
+      > div {
+        .header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 231px;
+
+          img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+          }
+          input {
+            margin-top: 4px;
+            background: #ffffff 0% 0% no-repeat padding-box;
+            border: 1px solid #707070;
+            border-radius: 5px;
+            width: 150px;
+            height: 35px;
+            letter-spacing: 0;
+            font-family: Segoe UI;
+            font-size: 14px;
+            padding: 8px;
+
+            &.error {
+              border: 1px solid #e87676;
+            }
+          }
+          button {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            border: none;
+            background: #ffffff;
+            border-radius: 50%;
+            color: #b4b4b4;
+            font-size: 30px;
+            line-height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+          }
+        }
+        .content {
+          margin-top: 20px;
+
+          &-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+
+            span {
+              border: 1px solid #ffffff;
+              border-radius: 5px;
+              color: #e4e4e4;
+              width: 120px;
+              height: 30px;
+              display: flex;
+              align-items: center;
+              padding-left: 10px;
+              margin-left: 40px;
+            }
+            button {
+              width: 30px;
+              height: 30px;
+              object-fit: contain;
+              border: none;
+              background: #ffffff;
+              border-radius: 50%;
+              color: #b4b4b4;
+              font-size: 30px;
+              line-height: 26px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+            }
+          }
+        }
+
+        &::nth-child(2) {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+}

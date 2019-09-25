@@ -5,6 +5,7 @@
   padding: 60px;
   position: absolute;
   top: 0;
+  z-index: 9;
 
   @include screen-md {
     padding: 0px 20px;
@@ -167,19 +168,5 @@
       color: white;
       text-decoration: none;
     }
-  }
-}
-
-@keyframes animate {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  70% {
-    transform: translateX(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0px);
   }
 }

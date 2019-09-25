@@ -1,0 +1,66 @@
+@import 'assets/scss/base.scss';
+
+.sidebar-wrapper {
+  width: 345px;
+  height: 100vh;
+  padding: 60px 100px 20px 15px;
+  background: #393939 0% 0% no-repeat padding-box;
+  border-right: 2px solid #707070;
+  animation: slide-from-left 0.3s ease-out;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+
+  .header {
+    text-align: left;
+    letter-spacing: 0;
+    color: #ffffff;
+    font-family: Microsoft Himalaya;
+    font-size: 45px;
+    font-weight: 400;
+    margin: 0;
+  }
+  .name {
+    margin: 20px 0 0 0;
+    font-size: 25px;
+    font-family: Segoe UI;
+    font-weight: 400;
+    color: #ffffff;
+  }
+
+  .side-menu {
+    margin-top: 57px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 63px;
+      cursor: pointer;
+
+      &.active span {
+        color: #00ffee;
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+      }
+      span {
+        margin-left: 40px;
+        font-family: Segoe UI;
+        font-size: 25px;
+        font-weight: bold;
+        color: #ffffff;
+      }
+    }
+  }
+}
