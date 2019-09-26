@@ -1,0 +1,32 @@
+@import 'assets/scss/base.scss';
+
+.carousel-card__wrapper {
+  margin: 0 auto;
+  width: 100%;
+  padding: 10px 40px;
+
+  .card-container {
+    transition: 0.3s ease;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+
+    &.selected {
+      transform: scale(1.1);
+    }
+
+    img {
+      height: 200px;
+      width: 180px;
+      border: 1px solid #707070;
+      border-radius: 10px;
+    }
+    span {
+      color: #ffffff;
+      margin-top: 9px;
+      font-size: 17px;
+    }
+  }
+}

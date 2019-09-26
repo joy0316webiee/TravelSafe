@@ -12,6 +12,7 @@ import { posts, currentUser } from './dummy.json';
 
 import IconSearch from 'assets/images/ic_search_grey.png';
 import './styles.scss';
+
 class Forum extends Component {
   state = {
     tags: ['Newest', 'Topics', 'Questions', 'Bp'],

@@ -1,1 +1,113 @@
 @import 'assets/scss/base.scss';
+
+.library-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  // background-image: url('../../../assets/images/setting_bg3.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: fadeIn 0.3s;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s ease;
+
+  .top-pane {
+    padding: 170px 0px 50px 470px;
+    height: 550px;
+    background: transparent linear-gradient(237deg, #000000 0%, #54545463 100%)
+      0% 0% no-repeat padding-box;
+
+    .container {
+      position: relative;
+      z-index: 10;
+
+      .search-field__wrapper {
+        .search-field {
+          width: 600px;
+          height: 40px;
+          padding: 0px 20px;
+          border-radius: 5px;
+          background-color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          input {
+            font-family: Segoe UI;
+            font-weight: bold;
+            font-size: 20px;
+            border: none;
+            width: 95%;
+
+            &::placeholder {
+              color: #cfcece;
+            }
+          }
+          img {
+            height: 100%;
+            cursor: pointer;
+          }
+        }
+      }
+      .destination {
+        .header {
+          display: flex;
+          align-items: center;
+          margin-top: 30px;
+
+          h2 {
+            letter-spacing: 0;
+            color: #ffffff;
+            font-size: 55px;
+            font-family: Microsoft Himalaya;
+            margin: 0;
+          }
+          span {
+            color: #ffffff;
+            margin-left: 50px;
+            font-size: 17px;
+          }
+        }
+        .details {
+          margin-top: 10px;
+
+          span {
+            font-size: 36px;
+            font-family: Microsoft Himalaya;
+            color: #ffffff;
+          }
+          p {
+            font-size: 17px;
+            color: #ffffff;
+            width: 1000px;
+            margin: 0px;
+            text-align: justify;
+          }
+          button {
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.8) 0% 0% no-repeat padding-box;
+            border: 1px solid #707070;
+            border-radius: 10px;
+            width: 300px;
+            height: 40px;
+            font: Bold 17px Segoe UI;
+            letter-spacing: 0;
+            color: #ffffff;
+            cursor: pointer;
+
+            &:hover {
+              background: rgba(0, 0, 0, 0.5);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bottom-pane {
+    flex: 1;
+    background: transparent linear-gradient(180deg, #000000 0%, #00000075 100%)
+      0% 0% no-repeat padding-box;
+    padding: 10px 50px 57px 400px;
+  }
+}
