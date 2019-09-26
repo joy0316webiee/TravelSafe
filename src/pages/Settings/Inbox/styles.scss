@@ -1,1 +1,142 @@
 @import 'assets/scss/base.scss';
+
+.inbox-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: white url('../../../assets/images/setting_bg3.png') no-repeat;
+  background-size: cover;
+  padding: 200px 0 80px 385px;
+  animation: fadeIn 0.3s ease-in;
+  position: relative;
+
+  &:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: #00000059 0% 0% no-repeat padding-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1000px;
+
+    > div {
+      width: 400px;
+      height: 600px;
+      background: rgba(256, 256, 256, 0.45);
+      border-radius: 10px;
+      backdrop-filter: blur(18px);
+      position: relative;
+
+      h2 {
+        text-align: left;
+        letter-spacing: 0;
+        color: #393939;
+        font-size: 50px;
+        font-family: Lucida Bright;
+        color: #ffffff;
+        position: absolute;
+        left: 25px;
+        top: -75px;
+      }
+      .content {
+        height: 500px;
+        overflow: auto;
+        margin-top: 50px;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        &::-webkit-scrollbar-track {
+          display: none;
+        }
+        &::-webkit-scrollbar-thumb {
+          display: none;
+        }
+
+        > div {
+          height: 70px;
+          padding: 10px;
+          margin-left: 15px;
+          margin-right: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+          cursor: pointer;
+
+          &.inbox-card {
+            .left-pane {
+              span {
+                font-size: 14px;
+              }
+              button {
+                width: 130px;
+                height: 23px;
+                font-size: 13px;
+                margin: 2px auto;
+              }
+            }
+          }
+
+          &:hover,
+          &.active {
+            background: #ffffff 0% 0% no-repeat padding-box;
+            box-shadow: 0px 5px 6px #00000029;
+            margin-left: 0px;
+            margin-right: 0px;
+            padding-left: 15px;
+            padding-right: 25px;
+
+            .left-pane {
+              button {
+                display: block;
+              }
+              span {
+                color: #989898;
+              }
+            }
+            .right-pane {
+              span {
+                color: #989898;
+              }
+            }
+          }
+
+          .left-pane {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 250px;
+
+            span {
+              color: #ffffff;
+              font-size: 17px;
+            }
+            button {
+              display: none;
+              background: #000000 0% 0% no-repeat padding-box;
+              border-radius: 2px;
+              width: 150px;
+              height: 25px;
+              color: #ffffff;
+              font-size: 15px;
+              margin-top: 5px;
+            }
+          }
+          .right-pane {
+            span {
+              font-size: 16px;
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+  }
+}

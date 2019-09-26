@@ -10,7 +10,7 @@ import './styles.scss';
 
 class Settings extends Component {
   state = {
-    currentPage: 'Library'
+    currentPage: 'Inbox'
   };
 
   handleMenuChange = currentPage => this.setState({ currentPage });
